@@ -1,49 +1,50 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://kaizix.fr">
+    <img alt="Kaizix" src="https://raw.githubusercontent.com/phroca/kaizix/main/src/images/kaizix-logo-solo.png?token=GHSAT0AAAAAACBQKK5FHJ3DNXWRXTJHOSCEZCIALYQ" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby Minimal Starter
+  KAIZIX - Agence de développement web & création digitale 
 </h1>
 
-## 🚀 Quick start
+## 🚀 Code source du site web - Propulsé par Gatsby
 
-1.  **Create a Gatsby site.**
+1.  **Récupération du code source.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+    cloner le code source via la commande git clone.
 
     ```shell
     # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    git clone git@github.com:phroca/kaizix.git
     ```
 
-2.  **Start developing.**
+2.  **rappatrier les dépendances du projet.**
 
-    Navigate into your new site’s directory and start it up.
+    Naviguer dans le dossier du projet, puis démarrez-le en installant les dependances.
 
     ```shell
-    cd my-gatsby-site/
+    cd kaizix/
+    npm i
     npm run develop
     ```
 
-3.  **Open the code and start customizing!**
+3.  **Ouvrir le code et comencer à customiser !**
 
-    Your site is now running at http://localhost:8000!
+    LE projet démarre via le lien : http://localhost:8000!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    Editer `src/pages/index.js` pour voir les mises à jour en temps réel!
 
-4.  **Learn more**
+4.  **Apprendre les bases du développement via Gatsby**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    - [Tutoriels](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
     - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    - [References API](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    - [Bibliothèque de Plugins](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+    - [Aide-mémoire](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-## 🚀 Quick start (Netlify)
+## 🚀 Déploiement via Netlify
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+Vous pouvez déployer votre projet via [Netlify](https://app.netlify.com/signup):
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deployer vers Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/phroca/kaizix)
