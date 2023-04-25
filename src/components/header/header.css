@@ -1,0 +1,14 @@
+@media (max-width: 640px) {
+    .header {
+        padding: 15px 0;
+    }
+    .nav-group {
+        max-width: 100%;
+    }
+    .header-group {
+        margin: 0 10px;
+    }
+    .header-group span {
+        display: none;
+    }
+}
