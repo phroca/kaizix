@@ -1,6 +1,5 @@
 import * as React from "react"
-import styled from "styled-components"
-import { useState, useEffect } from "react"
+import styled, {keyframes} from "styled-components"
 
 import imgHero from "../../../images/home/hero-section/hero-img-tr.png"
 import SubHeader from "../../sub-header/sub-header"
@@ -47,7 +46,29 @@ const HeroRightContainer = styled.div`
     align-items: center;
 `;
 
+const ImageAnimation = keyframes`
+    0% {
+        transform: translateY(-70px) translateX(0px)
+    }
+    50% {
+        transform: translateY(70px) translateX(0px)
+    }
+    100% {
+        transform: translateY(-70px) translateX(0px)
+    }
+`
+
 const ImgHero = styled.img`
+    height: 650px;
+    animation: ${ImageAnimation};
+    animation-timing-function: cubic-bezier(0.8, 0.5, 0.5, 0.8);
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+    
+`
+const ImgContainer = styled.div`
+
     height: 650px;
     background: #F8F8F8;
     border-radius: 10px;
@@ -68,7 +89,9 @@ const HeroSection = () => {
                      des performances élevés et une visibilité accrue de leurs business.</HeroText>
                 </HeroLeftContainer>
                 <HeroRightContainer>
-                    <ImgHero src={imgHero} />
+                    <ImgContainer>
+                        <ImgHero src={imgHero} />
+                    </ImgContainer>
                 </HeroRightContainer>
             </HeroSubContainer>
         </HeroContainer>

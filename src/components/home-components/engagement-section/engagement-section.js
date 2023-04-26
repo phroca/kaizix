@@ -12,10 +12,11 @@ const EngagementContainer = styled.div`
     height: 100vh;
     display: grid;
     justify-content: center;
+    margin: 20px 0 20px 0;
 `;
 
 const EngagementTitle = styled.h2`
-    font-family: "FuturaMEdium";
+    font-family: "FuturaMedium";
     font-size: 50px;
     color: black;
     text-align: center;
@@ -47,6 +48,10 @@ const EngagementColumnImg = styled.img`
     width: 350px;
     background: #F8F8F8;
     border-radius: 10px;
+    transition: all 0.6s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
 `;
 
 const EngagementColumnText = styled.div`

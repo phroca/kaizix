@@ -11,7 +11,7 @@
 
 1.  **Récupération du code source.**
 
-    cloner le code source via la commande git clone.
+    Cloner le code source via la commande git clone.
 
     ```shell
     # create a new Gatsby site using the minimal starter
@@ -30,7 +30,7 @@
 
 3.  **Ouvrir le code et comencer à customiser !**
 
-    LE projet démarre via le lien : http://localhost:8000!
+    Le projet démarre via le lien : http://localhost:8000!
 
     Editer `src/pages/index.js` pour voir les mises à jour en temps réel!
 

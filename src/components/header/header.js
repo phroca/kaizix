@@ -84,6 +84,7 @@ const CtaButton = styled.button`
   font-size: 20px;
   outline: none;
   border: none;
+  cursor: pointer;
 `;
 
 const Header = () => {

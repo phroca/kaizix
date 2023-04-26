@@ -10,7 +10,7 @@ const SubHeaderContainer = styled.div`
     border-radius: 10px;
     border: solid 1px #DDDDDD;
     min-width: 350px;
-
+    background: ${props=> props.theme === "dark" ? "#1D1D1B": "transparent"};
     padding: 5px;
 `
 const SubHeaderCercle = styled.div`
@@ -22,7 +22,7 @@ const SubHeaderCercle = styled.div`
 const SubHeaderTexte = styled.div`
     font-family: "FuturaMedium";
     font-size: 20px;
-    color: black;
+    color: ${props=> props.theme === "dark" ? "#FFFFFF": "#000000"};
     text-transform: uppercase;
 `
 
@@ -30,9 +30,9 @@ const SubHeader = (props) => {
 
 
     return (
-        <SubHeaderContainer>
+        <SubHeaderContainer theme={props.mode}>
             <SubHeaderCercle color={props.color}/>
-            <SubHeaderTexte>{props.text}</SubHeaderTexte>
+            <SubHeaderTexte theme={props.mode}>{props.text}</SubHeaderTexte>
         </SubHeaderContainer>
     );
 
