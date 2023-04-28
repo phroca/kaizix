@@ -11,6 +11,9 @@ const ContactContainer = styled.div`
     display: grid;
     justify-content: center;
     margin: 20px 0 20px 0;
+    @media(max-width: 640px) {
+        height: auto;
+    }
 `;
 
 const ContactSubContainer = styled.div`
@@ -18,6 +21,10 @@ const ContactSubContainer = styled.div`
     justify-items: start;
     align-items: center;
     width: 70vw;
+    @media(max-width: 640px) {
+        justify-items: center;
+        width: unset;
+    }
 `;
 const ContactBottomPart = styled.div`
     display: grid;
@@ -25,6 +32,11 @@ const ContactBottomPart = styled.div`
     justify-items: center;
     align-items: center;
     width: 100%;
+    @media(max-width: 640px) {
+        grid-template-rows: auto auto;
+        grid-template-columns: none;
+        width: unset;
+    }
 `;
 
 
@@ -32,6 +44,10 @@ const ContactLeftContainer = styled.div`
     display: grid;
     justify-self: start;
     width: 90%;
+    @media(max-width: 640px) {
+        justify-self: center;
+        width: unset;
+    }
 `;
 
 
@@ -40,12 +56,21 @@ const ContactTitle = styled.h1`
     font-size: 50px;
     color: black;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 30px;
+        max-width: unset;
+        margin: 20px;
+        text-align: center;
+    }
 `
 const ContactRightContainer = styled.div`
     display: grid;
     justify-self: end;
     justify-items: center;
     align-items: center;
+    @media(max-width: 640px) {
+        justify-self: center;
+    }
 `;
 
 const ImageAnimation = keyframes`
@@ -66,12 +91,22 @@ const ImgContact = styled.img`
     animation-timing-function: cubic-bezier(0.8, 0.5, 0.5, 0.8);
     animation-duration: 10s;
     animation-iteration-count: infinite;
+    @media(max-width: 640px) {
+        height: 300px;
+        width: 200px;
+        margin: 20px 0 20px 0;
+    }
 `
 
 const ImgContainer = styled.div`
     height: 650px;
     background: #F8F8F8;
     border-radius: 10px;
+    @media(max-width: 640px) {
+        height: 300px;
+        width: 200px;
+        margin: 20px 0 20px 0;
+    }
 `
 
 const ContactFormContainer = styled.form`

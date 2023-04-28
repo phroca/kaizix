@@ -12,6 +12,9 @@ const SubHeaderContainer = styled.div`
     min-width: 350px;
     background: ${props=> props.theme === "dark" ? "#1D1D1B": "transparent"};
     padding: 5px;
+    @media(max-width: 640px) {
+        min-width: unset;
+    }
 `
 const SubHeaderCercle = styled.div`
     width : 25px;
@@ -24,6 +27,9 @@ const SubHeaderTexte = styled.div`
     font-size: 20px;
     color: ${props=> props.theme === "dark" ? "#FFFFFF": "#000000"};
     text-transform: uppercase;
+    @media(max-width: 640px) {
+        font-size: 16px;
+    }
 `
 
 const SubHeader = (props) => {

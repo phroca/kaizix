@@ -12,7 +12,10 @@ const EngagementContainer = styled.div`
     height: 100vh;
     display: grid;
     justify-content: center;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
+    @media(max-width: 640px) {
+        height: unset;
+    }
 `;
 
 const EngagementTitle = styled.h2`
@@ -21,19 +24,29 @@ const EngagementTitle = styled.h2`
     color: black;
     text-align: center;
     max-width: 800px;
+    @media(max-width: 640px) {
+        font-size: 30px;
+    }
 `;
 
 const EngagementSubContainer = styled.div`
     display: grid;
     justify-items: center;
     align-items: center;
-    width: 70vw;
+    width: 70vw;    
+    @media(max-width: 640px) {
+        width: unset;
+    }
 `;
 
 const EngagementColumnsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: center;
+    @media(max-width: 640px) {
+        grid-template-columns: none;
+        grid-template-rows: repeat(3, auto);
+    }
 `;
 
 const EngagementColumnContainer = styled.div`
@@ -41,6 +54,10 @@ const EngagementColumnContainer = styled.div`
     grid-template-rows: 200px auto;
     justify-content: center;
     justify-items: center;
+    @media(max-width: 640px) {
+        grid-template-rows: 150px auto;
+        margin: 20px;
+    }
 `;
 
 const EngagementColumnImg = styled.img`
@@ -52,6 +69,11 @@ const EngagementColumnImg = styled.img`
     &:hover{
         transform: scale(1.1);
     }
+
+    @media(max-width: 640px) {
+        height: 150px;
+        width: 200px;
+    }
 `;
 
 const EngagementColumnText = styled.div`
@@ -60,6 +82,10 @@ const EngagementColumnText = styled.div`
     color: black;
     text-align: center;
     margin: 10px 0 0 10px;
+
+    @media(max-width: 640px) {
+        font-size: 16px;
+    }
 `;
 
 const EngagementText = styled.p`
@@ -67,6 +93,10 @@ const EngagementText = styled.p`
     font-size: 24px;
     color: black;
     text-align: center;
+    @media(max-width: 640px) {
+        font-size: 20px;
+        margin: 20px;
+    }
 `;
 
 

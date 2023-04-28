@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import "./projets-section.css";
 import styled from "styled-components";
 import SubHeader from "../../sub-header/sub-header";
@@ -20,9 +21,12 @@ const ProjetContainer = styled.div`
     margin: 20px 0 20px 0;
     background: #1D1D1B;
     display: grid;
-    
     justify-items: center;
     align-items: center;
+    @media(max-width: 640px) {
+        height: unset;
+        padding-bottom: 40px;
+    }
 `;
 const ProjectSubContainer = styled.div`
     display: grid;
@@ -30,12 +34,18 @@ const ProjectSubContainer = styled.div`
     width: 70vw;
     justify-items: center;
     align-items: center;
+    @media(max-width: 640px) {
+        width: unset;
+    }
 `;
 
 const SubHeaderContainer = styled.div`
   display: grid;
   justify-self: start;
   margin: 20px 0 20px 0;
+  @media(max-width: 640px) {
+        justify-self: center;
+    }
 `;
 
 const ProjetTitles = styled.div`
@@ -43,6 +53,11 @@ const ProjetTitles = styled.div`
     grid-template-columns: repeat(2, auto);
     justify-items: center;
     align-items: center;
+    @media(max-width: 640px) {
+        grid-template-rows: auto auto;
+        grid-template-columns: none;
+        margin-bottom: 40px;
+    }
 
 `
 const ProjetMainTitle = styled.div`
@@ -50,15 +65,26 @@ const ProjetMainTitle = styled.div`
     font-size: 50px;
     color: white;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 30px;
+        margin: 20px;
+        text-align: center;
+    }
 `
 const ProjetSubTitle = styled.div`
     font-family: "FuturaLt";
     font-size: 30px;
     color: white;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 24px;
+        margin: 20px;
+        text-align: center;
+    }
 `
 const ProjetElementList = styled.div`
     width: 70vw;
+
 `
 const ProjetElement = styled.div`
     display: grid;
@@ -78,6 +104,11 @@ const ProjetElement = styled.div`
             border: solid 1px #DDDDDD;
         }
     }
+    @media(max-width: 640px) {
+        width: 200px;
+        height: 300px;
+        background: #1d1d1b;
+    }
 `
 const ProjectImage = styled.img`
     
@@ -87,17 +118,27 @@ const ProjetTitle = styled.h2`
     font-weight: 900;
     font-size: 30px;
     color: white;
+    @media(max-width: 640px) {
+        font-size: 24px;
+    }
 `
 const ProjetSlogan = styled.h3`
     font-family: "FuturaLt";
     font-weight: 500;
     font-size: 24px;
     color: white;
+    @media(max-width: 640px) {
+        font-size: 20px;
+    }
+    
 `
 const ProjetTechnologie = styled.p`
     font-family: "FuturaMedium";
     font-size: 16px;
     color: #DDDDDD;
+    @media(max-width: 640px) {
+        font-size: 14px;
+    }
 `
 const ProjetLink = styled.div`
     height :60px;
@@ -157,7 +198,7 @@ const ListProjets = [
         "lien": "https://jeffbarcelo.com"
     },
     {
-        "id": 5,
+        "id": 6,
         "titre": "PhoenXCorp",
         "slogan": "Maîtres de conférences en cryptomonnaies",
         "technologie": "Site web | Maintenance applicative",
@@ -165,7 +206,7 @@ const ListProjets = [
         "lien": "https://phoenxcorp.com"
     },
     {
-        "id": 6,
+        "id": 7,
         "titre": "Fleuryr Design",
         "slogan": "Directeur Artistique, Graphic Designer, Consultant",
         "technologie": "Site web | maintenance applicative",
@@ -173,7 +214,7 @@ const ListProjets = [
         "lien": "https://fleuryrdesign.com"
     },
     {
-        "id": 7,
+        "id": 8,
         "titre": "Alma Yoga Iyengan",
         "slogan": "Cours de Yoga sur Lyon",
         "technologie": "Site web | Design | Maintenance applicative",
@@ -181,7 +222,7 @@ const ListProjets = [
         "lien": "https://alma-yoga-iyengar.fr"
     },
     {
-        "id": 8,
+        "id": 9,
         "titre": "Yem Patrimoine",
         "slogan": "Gestionnaire de patrimoine",
         "technologie": "Site web | Maintenance applicative",
@@ -189,7 +230,7 @@ const ListProjets = [
         "lien": "https://yem-patrimoine.com"
     },
     {
-        "id": 8,
+        "id": 10,
         "titre": "Table de Soie",
         "slogan": "Spécialiste dans l'art de la table",
         "technologie": "Site web | Maintenance applicative",
@@ -199,6 +240,19 @@ const ListProjets = [
 
 ]
 const ProjetsSection = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 640px)");
+        setIsMobile(mediaQuery.matches);
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches);
+        }
+
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+        return () => {
+            mediaQuery.removeEventListener("change", handleMediaQueryChange);
+        }
+    },[])
 
     return (
         <ProjetContainer>
@@ -211,16 +265,16 @@ const ProjetsSection = () => {
                     <ProjetSubTitle>Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
                 </ProjetTitles>
                 <ProjetElementList>
-                <Swiper slidesPerView={2} grabCursor={true} centeredSlides={true} pagination={true} effect={"coverflow"} modules={[EffectCoverflow, Pagination]} 
+                <Swiper slidesPerView={isMobile ? 1 : 2} grabCursor={true} centeredSlides={true} pagination={true} effect={"coverflow"} modules={[EffectCoverflow, Pagination]} 
                 coverflowEffect={{
-                    rotate: 50,
-                    stretch: 100,
-                    depth: 10,
+                    rotate: isMobile ? 1: 50,
+                    stretch: isMobile ? 1 :100,
+                    depth: isMobile ? 20 : 10,
                     modifier: 1,
                     slideShadows: false,
                      }} className="mySwiper">
                     {ListProjets.map((element, index) =>(
-                        <SwiperSlide>
+                        <SwiperSlide key={element.id}>
                             <ProjetElement>
                                 <ProjectImage />
                                 <ProjetTitle>{element.titre}</ProjetTitle>

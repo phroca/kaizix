@@ -6,13 +6,15 @@ import EngagementSection from "../components/home-components/engagement-section/
 import ServiceSection from "../components/home-components/services-section/services-section"
 import ProjetsSection from "../components/home-components/projets-section/projets-section"
 import ContactSection from "../components/home-components/contact-section/contact-section"
+import Seo from "../components/seo"
 
 const IndexPage = () => {
   return (
     <Layout>
+      <Seo title="KAIZIX | Agence de développement web & création digitale" />
       <HeroSection />
       <EngagementSection />
-      <ServiceSection />
+       <ServiceSection />
       <ProjetsSection />
       <ContactSection />
     </Layout>

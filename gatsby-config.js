@@ -4,7 +4,9 @@
 module.exports = {
   siteMetadata: {
     title: `Kaizix`,
-    siteUrl: `https://www.kaizix.fr`
+    description: `Agence de développement web & création digitale`,
+    siteUrl: `https://www.kaizix.fr`,
+    image: `/kaizix-logo-solo.png`,
   },
   plugins: ["gatsby-plugin-styled-components", {
     resolve: "gatsby-plugin-google-gtag",
@@ -21,5 +23,11 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
+  },
+  {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      icon: 'src/images/kaizix-logo-solo.png',
+    },
   }]
 };

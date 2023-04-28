@@ -3,6 +3,13 @@
     padding: 50px !important;
 }
 
+@media(max-width: 640px) {
+    .mySwiper {
+        padding: 5px !important;
+        height: 400px;
+    }
+}
+
 .swiper-pagination-bullet {
     background-color: white !important;
 }

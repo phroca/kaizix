@@ -18,12 +18,21 @@ const ServicesSubContainer = styled.div`
     justify-items: center;
     align-items: center;
     width: 70vw;
+    @media(max-width: 640px) {
+        grid-template-rows: auto auto;
+        grid-template-columns: none;
+        width: unset;
+    }
 `;
 const ServicesRightContainer = styled.div`
     display: grid;
     grid-template-rows: repeat(7, auto);
     justify-items: start;
     align-items: start;
+    @media(max-width: 640px) {
+        justify-items: center;
+        align-items: center;
+    }
 `;
 
 
@@ -32,6 +41,9 @@ const ServicesTitle = styled.h2`
     font-size: 50px;
     color: black;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 30px;
+    }
 `
 const ServiceParagraph = styled.div`
     display: grid;
@@ -45,24 +57,40 @@ const ParagraphTitle = styled.h3`
     font-size: 24px;
     color: black;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 20px;
+        margin: 20px;
+    }
 `
 const ParagraphText = styled.p`
     font-family: "FuturaLt";
     font-size: 20px;
     color: black;
     max-width: 750px;
+    @media(max-width: 640px) {
+        font-size: 16px;
+        margin: 20px;
+    }
 `
 const ServicesLeftContainer = styled.div`
     display: grid;
     justify-self: start;
     justify-items: center;
     align-items: center;
+    @media(max-width: 640px) {
+        justify-self: center;
+    }
 `;
 
 const ImgContainer = styled.div`
     height: 650px;
     background: #F8F8F8;
     border-radius: 10px;
+    @media(max-width: 640px) {
+        height: 300px;
+        width: 200px;
+        margin: 20px 0 20px 0;
+    }
 `
 
 const ImgServices = styled.img`
@@ -70,6 +98,10 @@ const ImgServices = styled.img`
     transition: all 0.6s ease;
     &:hover{
         transform: scale(0.9);
+    }
+    @media(max-width: 640px) {
+        height: 300px;
+        width: 200px;
     }
 `
 
@@ -88,13 +120,17 @@ const ColorGradient = styled.div`
     width: 100%;
     height: 200px;
     border-radius: 10px;
-    margin: 20px 0 20px 0; 
+    margin: 20px 0; 
     background: linear-gradient(45deg, #5BA4D9, #7FCBB1);
     background-size: 200% 400%;
     animation-name: ${ColorGradientAnimation};
     animation-duration: 2s;
     animation-iteration-count: infinite;
     //animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    @media(max-width: 640px) {
+        height: 100px;
+        margin: 5px 0 20px 0; 
+    }
 `
 
 const serviceData = [
