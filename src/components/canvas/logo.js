@@ -2,11 +2,10 @@ import React, { Suspense } from "react"
 import { Canvas } from  "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-
 //import CanvasLoader from "./loader"
 
 const Logo = () => {
-    const logo  = useGLTF("./desktop_pc/kaizix-logo.gltf");
+    const logo  = useGLTF("./static/desktop_pc/kaizix-logo.gltf");
 
     return(
         <mesh>

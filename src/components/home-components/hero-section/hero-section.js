@@ -1,5 +1,5 @@
 import * as React from "react"
-import styled, {keyframes} from "styled-components"
+import styled from "styled-components"
 
 import LogoCanvas from "../../canvas/logo"
 import SubHeader from "../../sub-header/sub-header"
