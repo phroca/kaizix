@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import * as React from "react";
 import styled, {keyframes} from "styled-components";
 
@@ -9,7 +10,7 @@ const ServicesContainer = styled.div`
     //height: 100vh;
     display: grid;
     justify-content: center;
-    margin: 50px 0 20px 0;
+    margin: 50px 0;
 `
 
 const ServicesSubContainer = styled.div`
@@ -36,7 +37,7 @@ const ServicesRightContainer = styled.div`
 `;
 
 
-const ServicesTitle = styled.h2`
+const ServicesTitle = styled(motion.h2)`
     font-family: "FuturaMedium";
     font-size: 50px;
     color: black;
@@ -45,7 +46,13 @@ const ServicesTitle = styled.h2`
         font-size: 30px;
     }
 `
-const ServiceParagraph = styled.div`
+const ServiceParagraphContainer = styled.div`
+    display: grid;
+    justify-items: start;
+    align-items: center;
+`;
+
+const ServiceParagraph = styled(motion.div)`
     display: grid;
     grid-template-rows: auto auto;
     justify-items: start;
@@ -82,7 +89,7 @@ const ServicesLeftContainer = styled.div`
     }
 `;
 
-const ImgContainer = styled.div`
+const ImgContainer = styled(motion.div)`
     height: 650px;
     background: #F8F8F8;
     border-radius: 10px;
@@ -116,7 +123,7 @@ const ColorGradientAnimation = keyframes`
         background-position: 0% 70%;
     }
 `
-const ColorGradient = styled.div`
+const ColorGradient = styled(motion.div)`
     width: 100%;
     height: 200px;
     border-radius: 10px;
@@ -160,23 +167,25 @@ const serviceData = [
         "text": "Nous proposons des services de formation et de mentorat pour aider les entreprises à développer leurs compétences en matière de développement web mais aussi d’utilisation de nos outils développé pour ces entreprises."
     }
 
-]
+];
+
 const ServiceSection = () => {
 
     return (
         <ServicesContainer>
             <ServicesSubContainer>
                 <ServicesLeftContainer>
-                    <ImgContainer>
+                    <ImgContainer initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
                         <ImgServices src={imgServices} />
                     </ImgContainer>
-                    <ColorGradient />
+                    <ColorGradient initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}/>
                 </ServicesLeftContainer>
                 <ServicesRightContainer>
-                    <SubHeader color="#000000" text="Nos services"/>
-                    <ServicesTitle>Ce que nous proposons</ServicesTitle>
+                    <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#000000" text="Nos services"/>
+                    <ServicesTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Ce que nous proposons</ServicesTitle>
+                    <ServiceParagraphContainer>
                     {serviceData.map( (service, index) => (
-                        <ServiceParagraph key={service.id}>
+                        <ServiceParagraph initial={{opacity: 0, scale: 1.5, x: -200}} whileInView={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} key={service.id}>
                         <ParagraphTitle>
                             {service.title}
                         </ParagraphTitle>
@@ -185,7 +194,7 @@ const ServiceSection = () => {
                         </ParagraphText>
                     </ServiceParagraph>
                     ))}
-                    
+                    </ServiceParagraphContainer>
                 </ServicesRightContainer>
             </ServicesSubContainer>
         </ServicesContainer>

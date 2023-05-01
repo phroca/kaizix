@@ -1,6 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-
+import { forwardRef } from "react"
+import { motion } from "framer-motion"
 
 const SubHeaderContainer = styled.div`
     display: grid;
@@ -32,16 +33,12 @@ const SubHeaderTexte = styled.div`
     }
 `
 
-const SubHeader = (props) => {
-
-
-    return (
-        <SubHeaderContainer theme={props.mode}>
+const SubHeader = forwardRef((props ,ref) => (
+        <SubHeaderContainer ref={ref} theme={props.mode}>
             <SubHeaderCercle color={props.color}/>
             <SubHeaderTexte theme={props.mode}>{props.text}</SubHeaderTexte>
         </SubHeaderContainer>
-    );
+));
 
-}
-
-export default SubHeader
+const SubHeaderMotion = motion(SubHeader);
+export default SubHeaderMotion;

@@ -6,8 +6,9 @@ import logoKaizix from "../../images/kaizix-logo.png";
 import styled from "styled-components";
 import open from "../../images/header/menu-open.png";
 import close from "../../images/header/menu-close.png";
+import { motion } from "framer-motion";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled(motion.div)`
   position: fixed;
   width: 100%;
   padding: ${props => props.hasScrolled === true ? "30px 0": "20px 0"};
@@ -180,7 +181,7 @@ const Header = () => {
 
     return (
       <div>
-        <HeaderContainer hasScrolled={hasScrolled} heightMobile={isMenuOpened}>
+        <HeaderContainer initial={{opacity: 0, y: -200}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5, ease: "easeOut"}} hasScrolled={hasScrolled} heightMobile={isMenuOpened}>
             <HeaderGroup>
               <GroupLink><Link to="/"><HeaderLogo src={logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close: open}/></ImgMobileContainer> }</GroupLink>
               {((isMobile && isMenuOpened) || !isMobile) && <><NavGroup>

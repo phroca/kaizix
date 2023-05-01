@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // import Swiper core and required modules.
 import SwiperCore, { Pagination, EffectCoverflow } from "swiper";
+import { motion } from "framer-motion";
 // configure Swiper to use modules
 SwiperCore.use([Pagination, EffectCoverflow]);
 
@@ -60,7 +61,7 @@ const ProjetTitles = styled.div`
     }
 
 `
-const ProjetMainTitle = styled.div`
+const ProjetMainTitle = styled(motion.div)`
     font-family: "FuturaMedium";
     font-size: 50px;
     color: white;
@@ -71,7 +72,7 @@ const ProjetMainTitle = styled.div`
         text-align: center;
     }
 `
-const ProjetSubTitle = styled.div`
+const ProjetSubTitle = styled(motion.div)`
     font-family: "FuturaLt";
     font-size: 30px;
     color: white;
@@ -82,7 +83,7 @@ const ProjetSubTitle = styled.div`
         text-align: center;
     }
 `
-const ProjetElementList = styled.div`
+const ProjetElementList = styled(motion.div)`
     width: 70vw;
 
 `
@@ -101,7 +102,6 @@ const ProjetElement = styled.div`
         }
         div {
             background: #5BA4D9;
-            border: solid 1px #DDDDDD;
         }
     }
     @media(max-width: 640px) {
@@ -258,13 +258,13 @@ const ProjetsSection = () => {
         <ProjetContainer>
             <ProjectSubContainer>
                 <SubHeaderContainer>
-                    <SubHeader mode="dark" color="#FFFFFF" text="Nos projets"/>
+                    <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} mode="dark" color="#FFFFFF" text="Nos projets"/>
                 </SubHeaderContainer>
                 <ProjetTitles>
-                    <ProjetMainTitle>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
-                    <ProjetSubTitle>Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
+                    <ProjetMainTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
+                    <ProjetSubTitle initial={{opacity: 0, scale: 1.5, y:-200}} whileInView={{opacity: 1, scale: 1, y: 0}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
                 </ProjetTitles>
-                <ProjetElementList>
+                <ProjetElementList initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
                 <Swiper slidesPerView={isMobile ? 1 : 2} grabCursor={true} centeredSlides={true} pagination={true} effect={"coverflow"} modules={[EffectCoverflow, Pagination]} 
                 coverflowEffect={{
                     rotate: isMobile ? 1: 50,

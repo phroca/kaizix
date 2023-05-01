@@ -1,16 +1,20 @@
 import * as React from "react";
+import { useState } from "react";
 import styled, {keyframes} from "styled-components";
 
 import imgContact from "../../../images/home/contact-section/contact-img.png"
 import SubHeader from "../../sub-header/sub-header"
 
 import useInput from "../../../hook/useInput";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser"
+
 
 const ContactContainer = styled.div`
     height: 100vh;
     display: grid;
     justify-content: center;
-    margin: 20px 0 20px 0;
+    margin: 50px 0;
     @media(max-width: 640px) {
         height: auto;
     }
@@ -51,8 +55,8 @@ const ContactLeftContainer = styled.div`
 `;
 
 
-const ContactTitle = styled.h1`
-    font-family: "FuturaMEdium";
+const ContactTitle = styled(motion.h1)`
+    font-family: "FuturaMedium";
     font-size: 50px;
     color: black;
     max-width: 750px;
@@ -62,7 +66,8 @@ const ContactTitle = styled.h1`
         margin: 20px;
         text-align: center;
     }
-`
+`;
+
 const ContactRightContainer = styled.div`
     display: grid;
     justify-self: end;
@@ -75,13 +80,13 @@ const ContactRightContainer = styled.div`
 
 const ImageAnimation = keyframes`
     0% {
-        transform: translateY(-70px) translateX(0px)
+        transform: translateY(-30px) translateX(0px)
     }
     50% {
-        transform: translateY(70px) translateX(0px)
+        transform: translateY(30px) translateX(0px)
     }
     100% {
-        transform: translateY(-70px) translateX(0px)
+        transform: translateY(-30px) translateX(0px)
     }
 `
 
@@ -98,7 +103,7 @@ const ImgContact = styled.img`
     }
 `
 
-const ImgContainer = styled.div`
+const ImgContainer = styled(motion.div)`
     height: 650px;
     background: #F8F8F8;
     border-radius: 10px;
@@ -109,7 +114,7 @@ const ImgContainer = styled.div`
     }
 `
 
-const ContactFormContainer = styled.form`
+const ContactFormContainer = styled(motion.form)`
     display: grid;
     grid-template-rows: repeat(5, auto);
     align-content: center;
@@ -161,28 +166,68 @@ const ContactButton = styled.button`
   font-size: 20px;
   outline: none;
   border: none;
+  cursor: pointer;
+`;
+
+const ContactMessage = styled.p`
+    font-family: "FuturaMedium";
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    display: grid;
+    justify-content: center;
 `;
 const ContactSection = () => {
-
-
+    const [loading, setLoading] = useState(false);
+    const [messageNotification, setMessageNotification] = useState("");
     const nom = useInput("");
     const email = useInput("");
     const budget = useInput("");
     const message = useInput("");
 
-    /*const validateEmail = (str) => {
+    const validateEmail = (str) => {
         const re = /\S+@\S+\.\S+/;
         return re.test(str);
-    }*/
+    }
+
+    const handleSendingMail = (event) => {
+        event.preventDefault();
+        setLoading(true);
+        if(nom.value === "") {setLoading(false); setMessageNotification("Le nom est incomplet."); return;}
+        if(email.value === "" && !validateEmail(email.value)) {setLoading(false); setMessageNotification("Le mail est incomplet."); return;}
+        if(budget.value === "") {setLoading(false); setMessageNotification("Le budget est incomplet. Si vous n'avez pas d'idées, mettez 0."); return;}
+        if(message.value === "") {setLoading(false); setMessageNotification("Le message est incomplet."); return;}
+        const messageComplet = message.value + "\n" + "Le budget estimé : " + budget.value
+        emailjs.send(
+            'service_pwbbi7c',
+            'template_lc1p4rs',
+            {
+                from_name: nom.value,
+                to_name: 'Kaizix',
+                from_email: email.value,
+                to_email: 'roca.philippe63@gmail.com',
+                message: `${messageComplet}`
+            },
+            'U2pbE-4T0vMbQDnWS'
+        ).then(() => {
+            setLoading(false);
+            setMessageNotification("Merci. Nous vous recontacterons le plus rapidement possible.");
+        }, (error) => {
+            setLoading(false);
+            console.log(error);
+            setMessageNotification("Une erreur est survenue. Veuillez recommencer");
+        });
+        
+    }
     return (
         <ContactContainer>
             <ContactSubContainer>
 
-                <SubHeader color="#7FCBB1" text="Discutons de votre projet"/>
-                <ContactTitle>Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
+                <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#7FCBB1" text="Discutons de votre projet"/>
+                <ContactTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
                 <ContactBottomPart>
                     <ContactLeftContainer>
-                    <ContactFormContainer>
+                    <ContactFormContainer initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
                         <InputWrapper>
                             <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
                             <InscriptionInput id="nom" placeholder="Nom" {...nom}></InscriptionInput>
@@ -200,14 +245,17 @@ const ContactSection = () => {
                             <InscriptionInput id="message" placeholder="Message" {...message}></InscriptionInput>
                         </InputWrapper>
                         <ContactButtonContainer>
-                            <ContactButton>
-                            Envoyez
+                            <ContactButton onClick={(e) => handleSendingMail(e)}>
+                            {loading ? "Envoi en cours..." : "Envoyez"}
                             </ContactButton>
                         </ContactButtonContainer>
+                        <ContactMessage>
+                            {messageNotification}
+                        </ContactMessage>
                     </ContactFormContainer>
                     </ContactLeftContainer>
                     <ContactRightContainer>
-                        <ImgContainer>
+                        <ImgContainer initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
                             <ImgContact src={imgContact} />
                         </ImgContainer>
                     </ContactRightContainer>
