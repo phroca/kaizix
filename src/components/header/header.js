@@ -159,7 +159,7 @@ const ImgMobile = styled.img`
     }
 `
 
-const Header = () => {
+const Header = (props) => {
    const [hasScrolled, setHasScrolled] = useState(false);
    const [isMenuOpened, setMenuOpened] = useState(false);
    const [isMobile, setIsMobile] = useState(false);
@@ -211,7 +211,7 @@ const Header = () => {
                 <HeaderButton>À propos</HeaderButton>
               </NavGroup>
               <CtaButtonContainer>
-                <CtaButton>
+                <CtaButton onClick={props.onclick}>
                   Discutons de votre projet
                 </CtaButton>
               </CtaButtonContainer> </>}

@@ -124,7 +124,10 @@ const ProjetElement = styled.div`
     @media(max-width: 640px) {
         width: 200px;
         height: 300px;
-        background: #1d1d1b;
+    }
+        @media (min-width: 640px) and (max-width: 1080px) {
+            width: 300px;
+            height: 300px;
     }
 `
 const ProjectImage = styled.img`

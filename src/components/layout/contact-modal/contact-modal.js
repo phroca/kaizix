@@ -1,14 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
-import styled, {keyframes} from "styled-components";
-
-import imgContact from "../../../images/home/contact-section/contact-img.png"
-import SubHeader from "../../sub-header/sub-header"
+import styled from "styled-components";
 
 import useInput from "../../../hook/useInput";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser"
-
+import closeImg from "../../../images/modal/close.png"
 
 const ContactContainer = styled.div`
     height: 100vh;
@@ -37,120 +34,37 @@ const ContactSubContainer = styled.div`
         width: unset; 
     }
 `;
+
+const ContactCloseButtonContainer = styled.div`
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #000000C0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+`;
+const ContactCloseImg = styled.img`
+    width: 20px;
+    height: 20px;
+`
 const ContactBottomPart = styled.div`
     display: grid;
-    grid-template-columns: auto 30%;
     justify-items: center;
     align-items: center;
     width: 100%;
+    position: relative;
     @media(max-width: 640px) {
         grid-template-rows: auto auto;
         grid-template-columns: none;
         width: unset;
-    }
-    @media (min-width: 640px) and (max-width: 1080px) {
-        width: unset; 
-        grid-template-columns: auto auto;
+        margin: 0 20px;
     }
 `;
-
-
-const ContactLeftContainer = styled.div`
-    display: grid;
-    justify-self: start;
-    width: 90%;
-    @media(max-width: 640px) {
-        justify-self: center;
-        width: unset;
-    }
-`;
-
-
-const ContactTitle = styled(motion.h1)`
-    font-family: "FuturaMedium";
-    font-size: 50px;
-    color: black;
-    max-width: 750px;
-    @media(max-width: 640px) {
-        font-size: 30px;
-        max-width: unset;
-        margin: 20px;
-        text-align: center;
-    }
-    @media (min-width: 640px) and (max-width: 1080px) {
-        font-size: 30px;
-    }
-`;
-
-const ContactRightContainer = styled.div`
-    display: grid;
-    justify-self: end;
-    justify-items: center;
-    align-items: center;
-    @media(max-width: 640px) {
-        justify-self: center;
-    }
-`;
-
-const ImageAnimation = keyframes`
-    0% {
-        transform: translateY(-30px) translateX(0px)
-    }
-    50% {
-        transform: translateY(30px) translateX(0px)
-    }
-    100% {
-        transform: translateY(-30px) translateX(0px)
-    }
-`
-
-const ImageAnimationPad = keyframes`
-    0% {
-        transform: translateY(-70px) translateX(0px)
-    }
-    50% {
-        transform: translateY(70px) translateX(0px)
-    }
-    100% {
-        transform: translateY(-70px) translateX(0px)
-    }
-`
-const ImgContact = styled.img`
-    height: 650px;
-    animation: ${ImageAnimation};
-    animation-timing-function: cubic-bezier(0.8, 0.5, 0.5, 0.8);
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    @media(max-width: 640px) {
-        height: 300px;
-        width: 200px;
-        margin: 20px 0 20px 0;
-    }
-    @media (min-width: 640px) and (max-width: 1080px) {
-        height: 400px;
-        width: 300px;
-        animation: ${ImageAnimationPad};
-        animation-timing-function: cubic-bezier(0.8, 0.5, 0.5, 0.8);
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
-    }
-`
-
-const ImgContainer = styled(motion.div)`
-    height: 650px;
-    background: #F8F8F8;
-    border-radius: 10px;
-    @media(max-width: 640px) {
-        height: 300px;
-        width: 200px;
-        margin: 20px 0 20px 0;
-    }
-    @media (min-width: 640px) and (max-width: 1080px) {
-        width: 300px;
-        display: grid;
-        align-items: center;
-    }
-`
 
 const ContactFormContainer = styled(motion.form)`
     display: grid;
@@ -161,6 +75,7 @@ const ContactFormContainer = styled(motion.form)`
     border-radius: 10px;
     width: 100%;
     height: 650px;
+    padding: 30px 0 20px 0;
 `;
 
 const InputWrapper = styled.div`
@@ -215,7 +130,7 @@ const ContactMessage = styled.p`
     display: grid;
     justify-content: center;
 `;
-const ContactSection = () => {
+const ContactModal = (props) => {
     const [loading, setLoading] = useState(false);
     const [messageNotification, setMessageNotification] = useState("");
     const nom = useInput("");
@@ -260,12 +175,12 @@ const ContactSection = () => {
     return (
         <ContactContainer>
             <ContactSubContainer>
-
-                <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#7FCBB1" text="Discutons de votre projet"/>
-                <ContactTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
+                
                 <ContactBottomPart>
-                    <ContactLeftContainer>
-                    <ContactFormContainer initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
+                <ContactCloseButtonContainer onClick={props.closeModal}>
+                    <ContactCloseImg src={closeImg}/>
+                </ContactCloseButtonContainer>
+                    <ContactFormContainer>
                         <InputWrapper>
                             <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
                             <InscriptionInput id="nom" placeholder="Nom" {...nom}></InscriptionInput>
@@ -291,16 +206,10 @@ const ContactSection = () => {
                             {messageNotification}
                         </ContactMessage>
                     </ContactFormContainer>
-                    </ContactLeftContainer>
-                    <ContactRightContainer>
-                        <ImgContainer initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
-                            <ImgContact src={imgContact} />
-                        </ImgContainer>
-                    </ContactRightContainer>
                     </ContactBottomPart>
             </ContactSubContainer>
         </ContactContainer>
     )
 }
 
-export default ContactSection;
+export default ContactModal;
