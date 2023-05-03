@@ -11,6 +11,9 @@ const ServicesContainer = styled.div`
     display: grid;
     justify-content: center;
     margin: 50px 0;
+    @media (min-width: 640px) and (max-width: 1080px) {
+        margin: 40px;
+  }
 `
 
 const ServicesSubContainer = styled.div`
@@ -24,6 +27,11 @@ const ServicesSubContainer = styled.div`
         grid-template-columns: none;
         width: unset;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset;
+        grid-template-columns: auto auto;
+        gap: 20px;
+  }
 `;
 const ServicesRightContainer = styled.div`
     display: grid;
@@ -45,6 +53,9 @@ const ServicesTitle = styled(motion.h2)`
     @media(max-width: 640px) {
         font-size: 30px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 30px;
+  }
 `
 const ServiceParagraphContainer = styled.div`
     display: grid;
@@ -68,6 +79,9 @@ const ParagraphTitle = styled.h3`
         font-size: 20px;
         margin: 20px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 20px;
+  }
 `
 const ParagraphText = styled.p`
     font-family: "FuturaLt";
@@ -78,6 +92,9 @@ const ParagraphText = styled.p`
         font-size: 16px;
         margin: 20px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 16px;
+  }
 `
 const ServicesLeftContainer = styled.div`
     display: grid;
@@ -98,6 +115,10 @@ const ImgContainer = styled(motion.div)`
         width: 200px;
         margin: 20px 0 20px 0;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 400px;
+        width: 300px;
+  }
 `
 
 const ImgServices = styled.img`
@@ -110,6 +131,11 @@ const ImgServices = styled.img`
         height: 300px;
         width: 200px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 400px;
+        width: 300px;
+  }
+    
 `
 
 const ColorGradientAnimation = keyframes`

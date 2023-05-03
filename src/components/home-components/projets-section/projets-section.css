@@ -10,6 +10,13 @@
     }
 }
 
+@media (min-width: 640px) and (max-width: 1080px) {
+    .mySwiper {
+        padding: 40px 0 !important;
+        height: 500px;
+    }
+}
+
 .swiper-pagination-bullet {
     background-color: white !important;
 }

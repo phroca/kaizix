@@ -15,6 +15,11 @@ const HeroContainer = styled.div`
         padding-top: 150px;
         height: auto;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        padding-top: 150px;
+        height: auto;
+        margin: 0 40px;
+  }
 `
 
 const HeroSubContainer = styled.div`
@@ -28,6 +33,11 @@ const HeroSubContainer = styled.div`
         grid-template-columns: none;
         width: unset;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset;
+        grid-template-columns: auto auto;
+        gap: 20px;
+  }
 `;
 const HeroLeftContainer = styled(motion.div)`
     display: grid;
@@ -51,6 +61,9 @@ const HeroTitle = styled(motion.h1)`
         max-width: unset;
         margin: 20px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 40px;
+  }
 `;
 
 const HeroText = styled(motion.p)`
@@ -63,6 +76,9 @@ const HeroText = styled(motion.p)`
         max-width: unset;
         margin: 20px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 20px;
+  }
 `;
 const HeroRightContainer = styled(motion.div)`
     display: grid;
@@ -85,6 +101,10 @@ const ImgContainer = styled.div`
         width: 200px;
         margin: 20px 0 20px 0;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 400px;
+        width: 300px;
+  }
 `;
 
 const HeroSection = () => {

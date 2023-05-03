@@ -18,6 +18,10 @@ const ContactContainer = styled.div`
     @media(max-width: 640px) {
         height: auto;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: auto;
+        margin: 40px;
+    }
 `;
 
 const ContactSubContainer = styled.div`
@@ -28,6 +32,9 @@ const ContactSubContainer = styled.div`
     @media(max-width: 640px) {
         justify-items: center;
         width: unset;
+    }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset; 
     }
 `;
 const ContactBottomPart = styled.div`
@@ -66,6 +73,9 @@ const ContactTitle = styled(motion.h1)`
         margin: 20px;
         text-align: center;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 30px;
+    }
 `;
 
 const ContactRightContainer = styled.div`
@@ -90,6 +100,17 @@ const ImageAnimation = keyframes`
     }
 `
 
+const ImageAnimationPad = keyframes`
+    0% {
+        transform: translateY(-70px) translateX(0px)
+    }
+    50% {
+        transform: translateY(70px) translateX(0px)
+    }
+    100% {
+        transform: translateY(-70px) translateX(0px)
+    }
+`
 const ImgContact = styled.img`
     height: 650px;
     animation: ${ImageAnimation};
@@ -101,6 +122,14 @@ const ImgContact = styled.img`
         width: 200px;
         margin: 20px 0 20px 0;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 400px;
+        width: 300px;
+        animation: ${ImageAnimationPad};
+        animation-timing-function: cubic-bezier(0.8, 0.5, 0.5, 0.8);
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
 `
 
 const ImgContainer = styled(motion.div)`
@@ -111,6 +140,11 @@ const ImgContainer = styled(motion.div)`
         height: 300px;
         width: 200px;
         margin: 20px 0 20px 0;
+    }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: 300px;
+        display: grid;
+        align-items: center;
     }
 `
 

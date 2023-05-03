@@ -17,6 +17,10 @@ const EngagementContainer = styled(motion.div)`
     @media(max-width: 640px) {
         height: unset;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: auto;
+        margin: 40px;
+  }
 `;
 
 const EngagementTitle = styled(motion.h2)`
@@ -28,6 +32,9 @@ const EngagementTitle = styled(motion.h2)`
     @media(max-width: 640px) {
         font-size: 30px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 30px;
+  }
 `;
 
 const EngagementSubContainer = styled.div`
@@ -38,6 +45,9 @@ const EngagementSubContainer = styled.div`
     @media(max-width: 640px) {
         width: unset;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset;
+  }
 `;
 
 const EngagementColumnsContainer = styled(motion.div)`
@@ -59,6 +69,10 @@ const EngagementColumnContainer = styled(motion.div)`
         grid-template-rows: 150px auto;
         margin: 20px;
     }
+
+    @media (min-width: 640px) and (max-width: 1080px) {
+        grid-template-rows: auto auto;
+  }
 `;
 
 const EngagementColumnImg = styled.img`
@@ -75,6 +89,10 @@ const EngagementColumnImg = styled.img`
         height: 150px;
         width: 200px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 150px;
+        width: 200px;
+  }
 `;
 
 const EngagementColumnText = styled.div`
@@ -87,6 +105,9 @@ const EngagementColumnText = styled.div`
     @media(max-width: 640px) {
         font-size: 16px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 16px;
+  }
 `;
 
 const EngagementText = styled(motion.p)`
@@ -98,6 +119,9 @@ const EngagementText = styled(motion.p)`
         font-size: 20px;
         margin: 20px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 20px;
+  }
 `;
 
 

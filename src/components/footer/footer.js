@@ -26,6 +26,10 @@ const FooterSubContainer =styled.div`
         height: 100%;
         grid-template-rows: repeat(3, auto);
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset;
+        margin: 0 40px;
+    }
 `
 const FooterTop = styled.div`
     display: grid;

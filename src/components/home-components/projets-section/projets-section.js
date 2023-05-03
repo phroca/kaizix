@@ -28,6 +28,9 @@ const ProjetContainer = styled.div`
         height: unset;
         padding-bottom: 40px;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: unset;   
+  }
 `;
 const ProjectSubContainer = styled.div`
     display: grid;
@@ -38,6 +41,10 @@ const ProjectSubContainer = styled.div`
     @media(max-width: 640px) {
         width: unset;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: unset;
+        margin: 40px;
+  }
 `;
 
 const SubHeaderContainer = styled.div`
@@ -71,6 +78,9 @@ const ProjetMainTitle = styled(motion.div)`
         margin: 20px;
         text-align: center;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 30px;
+  }
 `
 const ProjetSubTitle = styled(motion.div)`
     font-family: "FuturaLt";
@@ -82,9 +92,15 @@ const ProjetSubTitle = styled(motion.div)`
         margin: 20px;
         text-align: center;
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+        font-size: 24px;
+  }
 `
 const ProjetElementList = styled(motion.div)`
     width: 70vw;
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: 80vw;
+  }
 
 `
 const ProjetElement = styled.div`
@@ -95,6 +111,7 @@ const ProjetElement = styled.div`
     border: solid 1px #DDDDDD;
     border-radius: 10px;
     transition: all 0.6s ease;
+    background: #1d1d1b;
     &:hover{
         background: white;
         h2, h3 {

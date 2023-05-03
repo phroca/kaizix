@@ -57,6 +57,11 @@ const HeaderGroup = styled.div`
       
     }
     }
+
+    @media (min-width: 640px) and (max-width: 1080px) {
+        width: 100%;
+        grid-template-columns: repeat(3, auto);
+    }
   `;
 
 const GroupLink = styled.div`
@@ -86,6 +91,9 @@ const NavGroup = styled.div`
     justify-self: center;
     grid-template-rows: repeat(3, 1fr);
     }
+    @media (min-width: 640px) and (max-width: 1080px) {
+      grid-template-columns: repeat(3, auto);
+  }
 `;
 
 const HeaderButton = styled.button`
@@ -96,6 +104,9 @@ const HeaderButton = styled.button`
   color: black;
   text-transform: uppercase;
   width: 120px;
+  @media (min-width: 640px) and (max-width: 1080px) {
+      width: 100px;
+  }
 `;
 
 const CtaButtonContainer = styled.div`
@@ -105,6 +116,10 @@ const CtaButtonContainer = styled.div`
   @media(max-width: 640px) {
     justify-self: center;
     }
+
+    @media (min-width: 640px) and (max-width: 1080px) {
+      justify-self: center;
+  }
 `;
 const CtaButton = styled.button`
   background : #5BA4D9;
@@ -121,6 +136,12 @@ const CtaButton = styled.button`
     width: 200px;
     font-size: 16px;
     }
+
+  @media (min-width: 640px) and (max-width: 1080px) {
+      width: 100%;
+      font-size: 16px;
+      height :40px;
+  }
 `;
 
 const ImgMobileContainer = styled.div`
