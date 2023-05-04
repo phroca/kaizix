@@ -108,7 +108,7 @@ const ImgContainer = styled.div`
   }
 `;
 
-const HeroCTA = styled.div`
+const HeroCTA = styled(motion.div)`
     border: solid 1px #5BA4D9;
     border-radius: 10px;
     display: grid;
@@ -141,7 +141,7 @@ const HeroSection = (props) => {
                     <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement dans la création de sites web,
                      d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
                      </HeroText>
-                     <HeroCTA>
+                     <HeroCTA initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, delay: 1.2, ease: [0, 0.71, 0.2, 1.01]}}>
                         <HeroCTAText onClick={props.click}>
                         Discutons de votre projet
                         </HeroCTAText>
