@@ -1,17 +1,28 @@
 import React, { Suspense } from "react"
-import { Canvas } from  "@react-three/fiber"
+import { Canvas, useFrame } from  "@react-three/fiber"
 import { OrbitControls, useGLTF } from "@react-three/drei";
-
+import { useTime } from "framer-motion";
 //import CanvasLoader from "./loader"
 
 const Logo = () => {
     const logo  = useGLTF("./static/desktop_pc/kaizix-logo.gltf");
+    const yAngle = 1.2;
+      const distance = 2;
+      const time = useTime();
+    useFrame(({ camera }) => {
+        camera.position.setFromSphericalCoords(
+          distance,
+          yAngle,
+          -time.get() * 0.0005
+        );
+        camera.updateProjectionMatrix();
+        camera.lookAt(0, 0, 0);
+      });
 
     return(
-        <mesh>
-            <pointLight intensity={1} position={[0, 10, 0]}/>
-            <directionalLight intensity={0.01}  position={[0, 0.2, -5]}/>
-            <directionalLight intensity={1}  position={[10, 20, -5]}/>
+        <mesh>        
+            <directionalLight intensity={1}  position={[0, 0.2, -5]}/>
+            <directionalLight intensity={1}  position={[0, 0.2, 5]}/>
             <primitive object={logo.scene} />
         </mesh>
     )

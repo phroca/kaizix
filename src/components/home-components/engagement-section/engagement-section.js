@@ -163,13 +163,13 @@ const EngagementSection = () => {
                 <EngagementColumnContainer variants={columnVariants}>
                     <EngagementColumnImg  src={un}/>
                     <EngagementColumnText  >
-                    Quand une société de grande taille veut être à la pointe de la technologie, être performant 
+                    Quand une société de grande taille veut être à la pointe de la technologie, être performant.
                     </EngagementColumnText>
                 </EngagementColumnContainer>
                 <EngagementColumnContainer variants={columnVariants}>
                     <EngagementColumnImg src={deux}/>
                     <EngagementColumnText>
-                    Quand une PME veut évoluer, augmenter sa productivité, automatiser certaines tâches ou augmenter sa visibilité
+                    Quand une PME veut évoluer, augmenter sa productivité, automatiser certaines tâches ou augmenter sa visibilité.
                     </EngagementColumnText>
                 </EngagementColumnContainer>
                 <EngagementColumnContainer variants={columnVariants}>
@@ -179,11 +179,11 @@ const EngagementSection = () => {
                     </EngagementColumnText>
                 </EngagementColumnContainer>   
                 </EngagementColumnsContainer>
-                <EngagementText initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: .5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Nous les aidons à obtenir une plus grande présence en ligne, 
-            de proposer une offre qui soit adaptée à leurs besoins et à leurs images de marque. 
+                <EngagementText initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: .5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Nous vous aidons à obtenir une plus grande présence en ligne, 
+            de proposer une offre qui soit adaptée à vos besoins et votre image de marque. 
             Pour ce faire, nous nous appuyons sur une conception esthétique et innovante basée sur l’expérience utilisateur, 
             un développement rigoureux et une éthique de travail saine et transparente sur ses méthodes. 
-            Nous transformons leurs projets en résultats concrets.</EngagementText>
+            Nous transformons vos projets en résultats concrets.</EngagementText>
             </EngagementSubContainer> 
         </EngagementContainer>
     )

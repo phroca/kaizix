@@ -22,7 +22,7 @@ import ContactModal from "./contact-modal/contact-modal"
   justify-content: center;
 }
  `
- const Layout = ({ children }) => {
+ const Layout = (props) => {
     const [isContactTouched, setIsContactTouched] = useState(false);
     const handleContact = (event) => {
       event.preventDefault();
@@ -31,13 +31,14 @@ import ContactModal from "./contact-modal/contact-modal"
     const handleCloseModal = (event) => {
       event.preventDefault();
       setIsContactTouched(false);
+      props?.modalContactUpdate(false);
     }
    return (
        <>
          <Header onclick={(e) => handleContact(e)}/>
-         <main>{children}</main>
+         <main>{props.children}</main>
          <Footer />
-         {isContactTouched && <MainModal><ContactModal closeModal={(e) => handleCloseModal(e)}/></MainModal>}
+         {(isContactTouched || props?.modalContact) && <MainModal><ContactModal closeModal={(e) => handleCloseModal(e)}/></MainModal>}
        </>
      
    )

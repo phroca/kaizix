@@ -183,7 +183,7 @@ const ListProjets = [
         "slogan": "Rechargez sur la route EN TOUTE SÉRÉNITÉ",
         "technologie": "Application mobile",
         "image": "",
-        "lien": "https://efusion-ve.com"
+        "lien": "https://www.efusion-ve.com/"
     },
     {
         "id": 2,
@@ -199,7 +199,7 @@ const ListProjets = [
         "slogan": "L'accès aux marchés privés",
         "technologie": "Site web | Design | Maintenance applicative",
         "image": "",
-        "lien": "https://caneyan.com"
+        "lien": "https://www.caneyan.com"
     },
     {
         "id": 4,
@@ -207,7 +207,7 @@ const ListProjets = [
         "slogan": "Artiste peintre français street art & pop art",
         "technologie": "Site web | Maintenance applicative",
         "image": "",
-        "lien": "https://juliendurix.com"
+        "lien": "https://www.juliendurix.com"
     },
     {
         "id": 5,
@@ -215,7 +215,7 @@ const ListProjets = [
         "slogan": "Artiste copywriter, mentalise conférencier",
         "technologie": "Site web | Maintenance applicative",
         "image": "",
-        "lien": "https://jeffbarcelo.com"
+        "lien": "https://www.jeffbarcelo.com"
     },
     {
         "id": 6,
@@ -223,7 +223,7 @@ const ListProjets = [
         "slogan": "Maîtres de conférences en cryptomonnaies",
         "technologie": "Site web | Maintenance applicative",
         "image": "",
-        "lien": "https://phoenxcorp.com"
+        "lien": "https://www.phoenxcorp.com"
     },
     {
         "id": 7,
@@ -231,7 +231,7 @@ const ListProjets = [
         "slogan": "Directeur Artistique, Graphic Designer, Consultant",
         "technologie": "Site web | maintenance applicative",
         "image": "",
-        "lien": "https://fleuryrdesign.com"
+        "lien": "https://www.fleuryrdesign.com"
     },
     {
         "id": 8,
@@ -239,7 +239,7 @@ const ListProjets = [
         "slogan": "Cours de Yoga sur Lyon",
         "technologie": "Site web | Design | Maintenance applicative",
         "image": "",
-        "lien": "https://alma-yoga-iyengar.fr"
+        "lien": "https://www.alma-yoga-iyengar.fr"
     },
     {
         "id": 9,
@@ -247,7 +247,7 @@ const ListProjets = [
         "slogan": "Gestionnaire de patrimoine",
         "technologie": "Site web | Maintenance applicative",
         "image": "",
-        "lien": "https://yem-patrimoine.com"
+        "lien": "https://www.yem-patrimoine.com"
     },
     {
         "id": 10,
@@ -255,7 +255,7 @@ const ListProjets = [
         "slogan": "Spécialiste dans l'art de la table",
         "technologie": "Site web | Maintenance applicative",
         "image": "",
-        "lien": "https://tabledesoie.fr"
+        "lien": "https://www.tabledesoie.fr"
     },
 
 ]
@@ -300,11 +300,11 @@ const ProjetsSection = () => {
                                 <ProjetTitle>{element.titre}</ProjetTitle>
                                 <ProjetSlogan>{element.slogan}</ProjetSlogan>
                                 <ProjetTechnologie>{element.technologie}</ProjetTechnologie>
-                                <ProjetLink>
-                                <ProjetLinkText>
-                                    Voir plus
-                                </ProjetLinkText>
-                            </ProjetLink>
+                                <ProjetLink onClick={() => window.open(element.lien, '_blank')}>
+                                    <ProjetLinkText>
+                                        Voir le projet
+                                    </ProjetLinkText>
+                                </ProjetLink>
                             </ProjetElement>
                         </SwiperSlide>
                     ))}

@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import Layout from "../components/layout/layout"
 
 import HeroSection from "../components/home-components/hero-section/hero-section"
@@ -9,10 +10,15 @@ import ContactSection from "../components/home-components/contact-section/contac
 import Seo from "../components/seo"
 
 const IndexPage = () => {
+  const [isCTATouched, setIsCTATouched] = useState(false);
+  const handleClickCta = (e) => {
+    e.preventDefault();
+    setIsCTATouched(true);
+  }
   return (
-    <Layout>
+    <Layout modalContact={isCTATouched} modalContactUpdate={setIsCTATouched}>
       <Seo title="KAIZIX | Agence de développement web & création digitale" />
-      <HeroSection />
+      <HeroSection click={(e) => handleClickCta(e)}/>
       <EngagementSection />
        <ServiceSection />
       <ProjetsSection />

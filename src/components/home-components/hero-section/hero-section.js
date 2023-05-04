@@ -24,7 +24,7 @@ const HeroContainer = styled.div`
 
 const HeroSubContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     justify-items: center;
     align-items: center;
     width: 70vw;
@@ -53,9 +53,10 @@ const HeroLeftContainer = styled(motion.div)`
 
 const HeroTitle = styled(motion.h1)`
     font-family: "FuturaBold";
-    font-size: 60px;
+    font-size: 55px;
     color: black;
     max-width: 750px;
+    margin: 5px;
     @media(max-width: 640px) {
         font-size: 30px;
         max-width: unset;
@@ -107,18 +108,44 @@ const ImgContainer = styled.div`
   }
 `;
 
-const HeroSection = () => {
+const HeroCTA = styled.div`
+    border: solid 1px #5BA4D9;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    &:hover {
+        background: #5BA4D9;
+        div {
+            color: #FFFFFF;
+        }
+    }
+
+`
+const HeroCTAText = styled.div`
+    font-family: "FuturaMedium";
+    font-size: 20px;
+    color: #5BA4D9;
+`
+const HeroSection = (props) => {
 
     return(
         <HeroContainer>
             <HeroSubContainer>
                 <HeroLeftContainer >
                     <SubHeader initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} color="#5BA4D9" text="à la pointe de votre besoin"/>
-                    <HeroTitle initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>KAIZIX - Agence de développement web & création digitale</HeroTitle>
+                    <HeroTitle initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>L'engagement de vous offrir le meilleur en matière de performance et d'esthétisme.</HeroTitle>
                     <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement dans la création de sites web,
-                     d’application web et mobile. Nous apportons des solutions innovantes aux entreprises 
-                     afin de construire une relation saine avec leurs clients à travers un design adapté, 
-                     des performances élevés et une visibilité accrue de leurs business.</HeroText>
+                     d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
+                     </HeroText>
+                     <HeroCTA>
+                        <HeroCTAText onClick={props.click}>
+                        Discutons de votre projet
+                        </HeroCTAText>
+                     </HeroCTA>
                 </HeroLeftContainer>
                 <HeroRightContainer initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>
                     <ImgContainer>
