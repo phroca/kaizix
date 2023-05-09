@@ -2,7 +2,6 @@ import * as React from "react"
 import styled from "styled-components"
 
 import LogoCanvas from "../../canvas/logo"
-import SubHeader from "../../sub-header/sub-header"
 import { motion } from "framer-motion"
 
 const HeroContainer = styled.div`
@@ -56,7 +55,7 @@ const HeroTitle = styled(motion.h1)`
     font-size: 55px;
     color: black;
     max-width: 750px;
-    margin: 5px;
+    margin: 25px 0;
     @media(max-width: 640px) {
         font-size: 30px;
         max-width: unset;
@@ -130,13 +129,46 @@ const HeroCTAText = styled.div`
     font-size: 20px;
     color: #5BA4D9;
 `
+
+const SubHeaderContainer = styled(motion.div)`
+    display: grid;
+    grid-template-columns: 30px auto;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    border: solid 1px #DDDDDD;
+    min-width: 350px;
+    padding: 5px;
+    @media(max-width: 640px) {
+        min-width: unset;
+    }
+`
+const SubHeaderCercle = styled.div`
+    width : 25px;
+    height: 25px;
+    background: #5BA4D9;
+    border-radius: 50px;
+`
+const SubHeaderTexte = styled.div`
+    font-family: "FuturaMedium";
+    font-size: 20px;
+    color: #000000;
+    text-transform: uppercase;
+    @media(max-width: 640px) {
+        font-size: 16px;
+    }
+`
+
 const HeroSection = (props) => {
 
     return(
         <HeroContainer>
             <HeroSubContainer>
                 <HeroLeftContainer >
-                    <SubHeader initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} color="#5BA4D9" text="à la pointe de votre besoin"/>
+                    <SubHeaderContainer initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>
+                        <SubHeaderCercle />
+                        <SubHeaderTexte>à la pointe de votre besoin</SubHeaderTexte>
+                    </SubHeaderContainer>
                     <HeroTitle initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>L'engagement de vous offrir le meilleur en matière de performance et d'esthétisme.</HeroTitle>
                     <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement dans la création de sites web,
                      d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
@@ -149,7 +181,6 @@ const HeroSection = (props) => {
                 </HeroLeftContainer>
                 <HeroRightContainer initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>
                     <ImgContainer>
-                        {/* <ImgHero src={imgHero} /> */}
                         <LogoCanvas />
                     </ImgContainer>
                 </HeroRightContainer>

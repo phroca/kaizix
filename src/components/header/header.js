@@ -206,9 +206,9 @@ const Header = (props) => {
             <HeaderGroup>
               <GroupLink><Link to="/"><HeaderLogo src={logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close: open}/></ImgMobileContainer> }</GroupLink>
               {((isMobile && isMenuOpened) || !isMobile) && <><NavGroup>
-                <HeaderButton>Les travaux</HeaderButton>
-                <HeaderButton>Les services</HeaderButton>
-                <HeaderButton>À propos</HeaderButton>
+                <HeaderButton>Nos projets</HeaderButton>
+                <HeaderButton>Nos services</HeaderButton>
+                <HeaderButton>L'agence</HeaderButton>
               </NavGroup>
               <CtaButtonContainer>
                 <CtaButton onClick={props.onclick}>

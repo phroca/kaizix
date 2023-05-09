@@ -261,11 +261,11 @@ const ContactSection = () => {
         <ContactContainer>
             <ContactSubContainer>
 
-                <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#7FCBB1" text="Discutons de votre projet"/>
-                <ContactTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
+                <SubHeader color="#7FCBB1" text="Discutons de votre projet"/>
+                <ContactTitle>Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
                 <ContactBottomPart>
                     <ContactLeftContainer>
-                    <ContactFormContainer initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
+                    <ContactFormContainer>
                         <InputWrapper>
                             <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
                             <InscriptionInput id="nom" placeholder="Nom" {...nom}></InscriptionInput>
@@ -293,7 +293,7 @@ const ContactSection = () => {
                     </ContactFormContainer>
                     </ContactLeftContainer>
                     <ContactRightContainer>
-                        <ImgContainer initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
+                        <ImgContainer>
                             <ImgContact src={imgContact} />
                         </ImgContainer>
                     </ContactRightContainer>

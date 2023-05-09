@@ -278,13 +278,13 @@ const ProjetsSection = () => {
         <ProjetContainer>
             <ProjectSubContainer>
                 <SubHeaderContainer>
-                    <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} mode="dark" color="#FFFFFF" text="Nos projets"/>
+                    <SubHeader mode="dark" color="#FFFFFF" text="Nos projets"/>
                 </SubHeaderContainer>
                 <ProjetTitles>
-                    <ProjetMainTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
-                    <ProjetSubTitle initial={{opacity: 0, scale: 1.5, y:-200}} whileInView={{opacity: 1, scale: 1, y: 0}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
+                    <ProjetMainTitle>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
+                    <ProjetSubTitle>Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
                 </ProjetTitles>
-                <ProjetElementList initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 2, delay: 1, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
+                <ProjetElementList>
                 <Swiper slidesPerView={isMobile ? 1 : 2} grabCursor={true} centeredSlides={true} pagination={true} effect={"coverflow"} modules={[EffectCoverflow, Pagination]} 
                 coverflowEffect={{
                     rotate: isMobile ? 1: 50,

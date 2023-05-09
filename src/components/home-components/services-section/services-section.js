@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import * as React from "react";
+import { useRef } from "react";
 import styled, {keyframes} from "styled-components";
 
-import imgServices from "../../../images/home/services-section/service-img-tr.png"
+import vdServices from "../../../videos/kaizix-presentation.mp4"
 import SubHeader from "../../sub-header/sub-header"
 
 const ServicesContainer = styled.div`
@@ -18,7 +19,8 @@ const ServicesContainer = styled.div`
 
 const ServicesSubContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
+    gap: 20px;
     justify-items: center;
     align-items: center;
     width: 70vw;
@@ -106,9 +108,7 @@ const ServicesLeftContainer = styled.div`
     }
 `;
 
-const ImgContainer = styled(motion.div)`
-    height: 650px;
-    background: #F8F8F8;
+const ImgContainer = styled.div`
     border-radius: 10px;
     @media(max-width: 640px) {
         height: 300px;
@@ -138,6 +138,11 @@ const ImgServices = styled.img`
     
 `
 
+const VideoService = styled.video`
+    height: auto;
+    max-width: 100%;
+`
+
 const ColorGradientAnimation = keyframes`
     0% {
         background-position: 0% 70%;
@@ -151,7 +156,7 @@ const ColorGradientAnimation = keyframes`
 `
 const ColorGradient = styled(motion.div)`
     width: 100%;
-    height: 200px;
+    height: 100px;
     border-radius: 10px;
     margin: 20px 0; 
     background: linear-gradient(45deg, #5BA4D9, #7FCBB1);
@@ -197,21 +202,25 @@ const serviceData = [
 
 const ServiceSection = () => {
 
+    const vidRef = useRef();
+    const handlePlayVideo = () => {
+        vidRef.current.play();
+    }
     return (
         <ServicesContainer>
             <ServicesSubContainer>
                 <ServicesLeftContainer>
-                    <ImgContainer initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>
-                        <ImgServices src={imgServices} />
+                    <ImgContainer>
+                        <VideoService  autoPlay={true} loop preload="auto" muted src={vdServices} />
                     </ImgContainer>
-                    <ColorGradient initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}/>
+                    <ColorGradient />
                 </ServicesLeftContainer>
                 <ServicesRightContainer>
-                    <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#000000" text="Nos services"/>
-                    <ServicesTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Ce que nous proposons</ServicesTitle>
+                    <SubHeader color="#000000" text="Nos services"/>
+                    <ServicesTitle >Ce que nous proposons</ServicesTitle>
                     <ServiceParagraphContainer>
                     {serviceData.map( (service, index) => (
-                        <ServiceParagraph initial={{opacity: 0, scale: 1.5, x: -200}} whileInView={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} key={service.id}>
+                        <ServiceParagraph key={service.id}>
                         <ParagraphTitle>
                             {service.title}
                         </ParagraphTitle>

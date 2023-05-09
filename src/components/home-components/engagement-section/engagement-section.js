@@ -75,11 +75,20 @@ const EngagementColumnContainer = styled(motion.div)`
   }
 `;
 
-const EngagementColumnImg = styled.img`
-    height: 200px;
-    width: 350px;
+const EngagementColumnImgContainer = styled.div`
     background: #F8F8F8;
     border-radius: 10px;
+    height: 200px;
+    width: 350px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+`;
+
+const EngagementColumnImg = styled.img`
+    height: 200px;
+    width: auto;
+    
     transition: all 0.6s ease;
     &:hover{
         transform: scale(1.1);
@@ -124,62 +133,40 @@ const EngagementText = styled(motion.p)`
   }
 `;
 
-
-const columnsContainerVariants = {
-    offscreen: {
-        opacity: 0,
-    }, 
-    onscreen: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.5,
-            type: "spring",
-            duration: 1,
-        }
-    }
-}
-const columnVariants = {
-    offscreen: {
-        opacity: 0,
-        y: 50
-    }, 
-    onscreen: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            type: "spring",
-            duration: 1,
-        }
-    }
-}
 const EngagementSection = () => {
     return(
         <EngagementContainer>
             
             <EngagementSubContainer>
-                <SubHeader initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: .5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} color="#CEB5A7" text="un engagement adapté"/>
-                <EngagementTitle initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: .5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}} >Lorsque nous collaborons, nous créons ensemble plus qu’un site ou une appli.</EngagementTitle>
-                <EngagementColumnsContainer initial="offscreen" whileInView="onscreen" variants={columnsContainerVariants} viewport={{once: true}} >
-                <EngagementColumnContainer variants={columnVariants}>
-                    <EngagementColumnImg  src={un}/>
+                <SubHeader  color="#CEB5A7" text="un engagement adapté"/>
+                <EngagementTitle>Lorsque nous collaborons, nous créons ensemble plus qu’un site ou une appli.</EngagementTitle>
+                <EngagementColumnsContainer>
+                <EngagementColumnContainer>
+                    <EngagementColumnImgContainer>
+                        <EngagementColumnImg  src={un}/>
+                    </EngagementColumnImgContainer> 
                     <EngagementColumnText  >
                     Quand une société de grande taille veut être à la pointe de la technologie, être performant.
                     </EngagementColumnText>
                 </EngagementColumnContainer>
-                <EngagementColumnContainer variants={columnVariants}>
-                    <EngagementColumnImg src={deux}/>
+                <EngagementColumnContainer>
+                    <EngagementColumnImgContainer>
+                        <EngagementColumnImg src={deux}/>
+                    </EngagementColumnImgContainer> 
                     <EngagementColumnText>
                     Quand une PME veut évoluer, augmenter sa productivité, automatiser certaines tâches ou augmenter sa visibilité.
                     </EngagementColumnText>
                 </EngagementColumnContainer>
-                <EngagementColumnContainer variants={columnVariants}>
-                    <EngagementColumnImg src={trois}/>
+                <EngagementColumnContainer>
+                    <EngagementColumnImgContainer>
+                        <EngagementColumnImg src={trois}/>
+                    </EngagementColumnImgContainer> 
                     <EngagementColumnText>
                     Quand une startup ou un porteur de  projet a besoin d’un accompagnement afin de booster son business sur le web.
                     </EngagementColumnText>
                 </EngagementColumnContainer>   
                 </EngagementColumnsContainer>
-                <EngagementText initial={{opacity: 0, scale: 1.5}} whileInView={{opacity: 1, scale: 1}} transition={{duration: 1, delay: .5, ease: [0, 0.71, 0.2, 1.01]}} viewport={{once: true}}>Nous vous aidons à obtenir une plus grande présence en ligne, 
+                <EngagementText>Nous vous aidons à obtenir une plus grande présence en ligne, 
             de proposer une offre qui soit adaptée à vos besoins et votre image de marque. 
             Pour ce faire, nous nous appuyons sur une conception esthétique et innovante basée sur l’expérience utilisateur, 
             un développement rigoureux et une éthique de travail saine et transparente sur ses méthodes. 
