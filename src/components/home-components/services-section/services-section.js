@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import * as React from "react";
-import { useRef } from "react";
 import styled, {keyframes} from "styled-components";
 
 import vdServices from "../../../videos/kaizix-presentation.mp4"
+import vdServicesWebM from "../../../videos/kaizix-presentation.webm"
 import SubHeader from "../../sub-header/sub-header"
 
 const ServicesContainer = styled.div`
@@ -43,6 +43,7 @@ const ServicesRightContainer = styled.div`
     @media(max-width: 640px) {
         justify-items: center;
         align-items: center;
+        grid-row: 1;
     }
 `;
 
@@ -105,6 +106,7 @@ const ServicesLeftContainer = styled.div`
     align-items: center;
     @media(max-width: 640px) {
         justify-self: center;
+        grid-row: 2;
     }
 `;
 
@@ -119,23 +121,6 @@ const ImgContainer = styled.div`
         height: 400px;
         width: 300px;
   }
-`
-
-const ImgServices = styled.img`
-    height: 650px;
-    transition: all 0.6s ease;
-    &:hover{
-        transform: scale(0.9);
-    }
-    @media(max-width: 640px) {
-        height: 300px;
-        width: 200px;
-    }
-    @media (min-width: 640px) and (max-width: 1080px) {
-        height: 400px;
-        width: 300px;
-  }
-    
 `
 
 const VideoService = styled.video`
@@ -202,16 +187,15 @@ const serviceData = [
 
 const ServiceSection = () => {
 
-    const vidRef = useRef();
-    const handlePlayVideo = () => {
-        vidRef.current.play();
-    }
     return (
         <ServicesContainer>
             <ServicesSubContainer>
                 <ServicesLeftContainer>
                     <ImgContainer>
-                        <VideoService  autoPlay={true} loop preload="auto" muted src={vdServices} />
+                        <VideoService  autoPlay={true} loop preload="auto" muted src={vdServices}>
+                        <source src={vdServices} type="video/mp4"/>
+                        <source src={vdServicesWebM} type="video/webm"/>
+                        </VideoService>
                     </ImgContainer>
                     <ColorGradient />
                 </ServicesLeftContainer>

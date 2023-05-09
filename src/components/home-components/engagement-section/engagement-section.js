@@ -66,7 +66,7 @@ const EngagementColumnContainer = styled(motion.div)`
     justify-content: center;
     justify-items: center;
     @media(max-width: 640px) {
-        grid-template-rows: 150px auto;
+        grid-template-rows: auto auto;
         margin: 20px;
     }
 
@@ -83,6 +83,11 @@ const EngagementColumnImgContainer = styled.div`
     display: grid;
     justify-content: center;
     justify-items: center;
+    align-content: center;
+    @media (min-width: 640px) and (max-width: 1080px) {
+        height: 150px;
+        width: 200px;
+  }
 `;
 
 const EngagementColumnImg = styled.img`
@@ -96,11 +101,11 @@ const EngagementColumnImg = styled.img`
 
     @media(max-width: 640px) {
         height: 150px;
-        width: 200px;
+        width: 150px;
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         height: 150px;
-        width: 200px;
+        width: 150px;
   }
 `;
 

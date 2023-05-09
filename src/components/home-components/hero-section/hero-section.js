@@ -59,7 +59,7 @@ const HeroTitle = styled(motion.h1)`
     @media(max-width: 640px) {
         font-size: 30px;
         max-width: unset;
-        margin: 20px;
+        margin: 50px 20px;
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 40px;
@@ -98,7 +98,7 @@ const ImgContainer = styled.div`
     border-radius: 10px;
     @media(max-width: 640px) {
         height: 300px;
-        width: 200px;
+        width: 350px;
         margin: 20px 0 20px 0;
     }
     @media (min-width: 640px) and (max-width: 1080px) {
@@ -121,6 +121,9 @@ const HeroCTA = styled(motion.div)`
         div {
             color: #FFFFFF;
         }
+    }
+    @media(max-width: 640px) {
+        margin: 10px 0;
     }
 
 `
