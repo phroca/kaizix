@@ -9,15 +9,20 @@ const HeroContainer = styled.div`
     height: 100vh;
     display: grid;
     justify-content: center;
-    padding-top: 50px;
+    margin-top: 140px;
     @media(max-width: 640px) {
         padding-top: 150px;
         height: auto;
+        margin: 0;
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         padding-top: 150px;
         height: auto;
         margin: 0 40px;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    height: auto;
+    padding-bottom: 50px;
   }
 `
 
@@ -25,7 +30,7 @@ const HeroSubContainer = styled.div`
     display: grid;
     grid-template-columns: auto auto;
     justify-items: center;
-    align-items: center;
+    align-items: start;
     width: 70vw;
     @media(max-width: 640px) {
         grid-template-rows: auto auto;
@@ -36,6 +41,10 @@ const HeroSubContainer = styled.div`
         width: unset;
         grid-template-columns: auto auto;
         gap: 20px;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    align-items: center;
+    gap: 20px;
   }
 `;
 const HeroLeftContainer = styled(motion.div)`
@@ -64,6 +73,9 @@ const HeroTitle = styled(motion.h1)`
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 40px;
   }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 45px;
+  }
 `;
 
 const HeroText = styled(motion.p)`
@@ -88,6 +100,7 @@ const HeroRightContainer = styled(motion.div)`
     @media(max-width: 640px) {
         justify-self: center;
     }
+    
 `;
 
 const ImgContainer = styled.div`
@@ -103,6 +116,10 @@ const ImgContainer = styled.div`
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         height: 400px;
+        width: 300px;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    height: 400px;
         width: 300px;
   }
 `;
@@ -173,12 +190,12 @@ const HeroSection = (props) => {
                         <SubHeaderTexte>à la pointe de votre besoin</SubHeaderTexte>
                     </SubHeaderContainer>
                     <HeroTitle initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>L'engagement de vous offrir le meilleur en matière de performance et d'esthétisme.</HeroTitle>
-                    <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement dans la création de sites web,
+                    <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement <strong>à Orléans</strong> dans la création de sites web,
                      d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
                      </HeroText>
                      <HeroCTA initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, delay: 1.2, ease: [0, 0.71, 0.2, 1.01]}}>
                         <HeroCTAText onClick={props.click}>
-                        Discutons de votre projet
+                        Discutons de votre projet et travaillons ensemble
                         </HeroCTAText>
                      </HeroCTA>
                 </HeroLeftContainer>

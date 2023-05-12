@@ -21,6 +21,9 @@ const EngagementContainer = styled(motion.div)`
         height: auto;
         margin: 40px;
   }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    margin: 40px;
+  }
 `;
 
 const EngagementTitle = styled(motion.h2)`
@@ -35,6 +38,9 @@ const EngagementTitle = styled(motion.h2)`
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 30px;
   }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 40px;
+    }
 `;
 
 const EngagementSubContainer = styled.div`
@@ -47,6 +53,9 @@ const EngagementSubContainer = styled.div`
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         width: unset;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    width: unset;
   }
 `;
 

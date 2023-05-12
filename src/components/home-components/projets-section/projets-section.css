@@ -17,6 +17,18 @@
     }
 }
 
+@media (min-width: 1081px) and (max-width: 1440px) {
+    .mySwiper {
+        width: unset;
+        padding: 50px 0 !important;
+    }
+}
+
 .swiper-pagination-bullet {
     background-color: white !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #FFFFFF;
 }

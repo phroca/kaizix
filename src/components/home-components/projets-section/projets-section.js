@@ -5,17 +5,17 @@ import styled from "styled-components";
 import SubHeader from "../../sub-header/sub-header";
 // import Swiper styles
 import "swiper/swiper.css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 // import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // import Swiper core and required modules.
-import SwiperCore, { Pagination, EffectCoverflow } from "swiper";
+import SwiperCore, { Pagination,Navigation } from "swiper";
 import { motion } from "framer-motion";
 // configure Swiper to use modules
-SwiperCore.use([Pagination, EffectCoverflow]);
+SwiperCore.use([Pagination]);
 
 const ProjetContainer = styled.div`
     height: 100vh;
@@ -43,6 +43,10 @@ const ProjectSubContainer = styled.div`
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         width: unset;
+        margin: 40px;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    width: unset;
         margin: 40px;
   }
 `;
@@ -81,6 +85,9 @@ const ProjetMainTitle = styled(motion.div)`
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 30px;
   }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 40px;
+    }
 `
 const ProjetSubTitle = styled(motion.div)`
     font-family: "FuturaLt";
@@ -95,11 +102,17 @@ const ProjetSubTitle = styled(motion.div)`
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 24px;
   }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 26px;
+    }
 `
 const ProjetElementList = styled(motion.div)`
     width: 70vw;
     @media (min-width: 640px) and (max-width: 1080px) {
         width: 80vw;
+  }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+    width: 80vw;
   }
 
 `
@@ -129,6 +142,10 @@ const ProjetElement = styled.div`
             width: 300px;
             height: 300px;
     }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        width: 300px;
+            height: 300px;
+  }
 `
 const ProjectImage = styled.img`
     
@@ -278,21 +295,15 @@ const ProjetsSection = () => {
         <ProjetContainer>
             <ProjectSubContainer>
                 <SubHeaderContainer>
-                    <SubHeader mode="dark" color="#FFFFFF" text="Nos projets"/>
+                    <SubHeader mode="dark" color="#FFFFFF" text="Nos réalisations"/>
                 </SubHeaderContainer>
                 <ProjetTitles>
                     <ProjetMainTitle>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
                     <ProjetSubTitle>Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
                 </ProjetTitles>
                 <ProjetElementList>
-                <Swiper slidesPerView={isMobile ? 1 : 2} grabCursor={true} centeredSlides={true} pagination={true} effect={"coverflow"} modules={[EffectCoverflow, Pagination]} 
-                coverflowEffect={{
-                    rotate: isMobile ? 1: 50,
-                    stretch: isMobile ? 1 :100,
-                    depth: isMobile ? 20 : 10,
-                    modifier: 1,
-                    slideShadows: false,
-                     }} className="mySwiper">
+                <Swiper slidesPerView={isMobile ? 1 : 3} grabCursor={true} centeredSlides={true} pagination={true} navigation={true} modules={[Navigation, Pagination]} 
+className="mySwiper">
                     {ListProjets.map((element, index) =>(
                         <SwiperSlide key={element.id}>
                             <ProjetElement>

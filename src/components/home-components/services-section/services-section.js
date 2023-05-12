@@ -45,6 +45,9 @@ const ServicesRightContainer = styled.div`
         align-items: center;
         grid-row: 1;
     }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        max-width: 450px;
+    }
 `;
 
 
@@ -59,6 +62,9 @@ const ServicesTitle = styled(motion.h2)`
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 30px;
   }
+  @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 40px;
+    }
 `
 const ServiceParagraphContainer = styled.div`
     display: grid;

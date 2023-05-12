@@ -22,6 +22,10 @@ const ContactContainer = styled.div`
         height: auto;
         margin: 40px;
     }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        height: auto;
+        margin: 40px;
+  }
 `;
 
 const ContactSubContainer = styled.div`
@@ -36,6 +40,9 @@ const ContactSubContainer = styled.div`
     @media (min-width: 640px) and (max-width: 1080px) {
         width: unset; 
     }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        width: unset; 
+  }
 `;
 const ContactBottomPart = styled.div`
     display: grid;
@@ -79,6 +86,9 @@ const ContactTitle = styled(motion.h1)`
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 30px;
+    }
+    @media (min-width: 1081px) and (max-width: 1440px) {
+        font-size: 40px;
     }
 `;
 
