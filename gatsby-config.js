@@ -3,8 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Kaizix`,
-    description: `Agence de développement web & création digitale`,
+    title: `KAIZIX - Agence de développement web & création digitale`,
+    description: `Agence de développement en création de sites web et applications mobiles design, performants & personnalisées pour booster votre activité et vous démarquer.`,
     siteUrl: `https://www.kaizix.fr`,
     image: `/kaizix-logo-solo.png`,
   },
