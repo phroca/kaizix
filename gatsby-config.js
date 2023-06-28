@@ -29,5 +29,15 @@ module.exports = {
     options: {
       icon: 'src/images/kaizix-logo-solo.png',
     },
-  }]
+  },
+  "gatsby-plugin-sitemap",
+  {
+    resolve: "gatsby-plugin-robots-txt",
+    options: {
+      host: 'https://www.kaizix.fr',
+      sitemap: 'https://www.kaizix.fr/sitemap-index.xml',
+      policy: [{userAgent: '*', allow: '/'}]
+    }
+  }
+  ]
 };
