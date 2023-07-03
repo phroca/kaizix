@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import styled, {keyframes} from "styled-components";
 
-import imgContact from "../../../images/home/contact-section/contact-img.png"
+import imgContact from "../../../images/home/contact-section/contact-img.webp"
 import SubHeader from "../../sub-header/sub-header"
 
 import useInput from "../../../hook/useInput";

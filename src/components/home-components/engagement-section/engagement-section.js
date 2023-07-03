@@ -4,9 +4,9 @@ import styled from "styled-components"
 import SubHeader from "../../sub-header/sub-header"
 // import { Tilt } from "react-tilt"
 import { motion } from "framer-motion"
-import un from "../../../images/home/engagement-section/engagement-1.png"
-import deux from "../../../images/home/engagement-section/engagement-2.png"
-import trois from "../../../images/home/engagement-section/engagement-3.png"
+import un from "../../../images/home/engagement-section/engagement-1.webp"
+import deux from "../../../images/home/engagement-section/engagement-2.webp"
+import trois from "../../../images/home/engagement-section/engagement-3.webp"
 
 const EngagementContainer = styled(motion.div)`
     background: white;
