@@ -3,10 +3,12 @@ import { Link } from "gatsby";
 import "./header.css";
 import { useState, useEffect } from "react";
 import logoKaizix from "../../images/kaizix-logo.png";
+import logoKaizixDark from "../../images/kaizix-logo-dark.png";
 import styled from "styled-components";
 import open from "../../images/header/menu-open.png";
 import close from "../../images/header/menu-close.png";
 import { motion } from "framer-motion";
+import { navigate } from "gatsby-link";
 
 const HeaderContainer = styled(motion.div)`
   position: fixed;
@@ -17,7 +19,7 @@ const HeaderContainer = styled(motion.div)`
   justify-items: center;
   justify-content: center;
   transition: 0.5s;
-  background: ${props => props.hasScrolled === true ? "rgba(255, 255, 255, 0.9)": "none"};
+  background: ${props => props.hasScrolled === true ? props.isDark === true ? "rgba(0, 0, 0, 0.9)": "rgba(255, 255, 255, 0.9)": "none"};
   @media(max-width: 640px) {
     height: ${props => props.heightMobile ? "unset" :"60px"};
     background: white;
@@ -74,7 +76,7 @@ const GroupLink = styled.div`
 `;
 const NavGroup = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, auto);
   align-items: center;
   justify-items: center;
   justify-self: end;
@@ -89,10 +91,10 @@ const NavGroup = styled.div`
   @media(max-width: 640px) {
     grid-template-columns: none;
     justify-self: center;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     }
     @media (min-width: 640px) and (max-width: 1080px) {
-      grid-template-columns: repeat(3, auto);
+      grid-template-columns: repeat(4, auto);
   }
 `;
 
@@ -101,7 +103,7 @@ const HeaderButton = styled.button`
   border: none;
   background: none;
   font-family: "FuturaMedium";
-  color: black;
+  color: ${props=> props.isDark === true ? "#9d9dad" : "black"};
   text-transform: uppercase;
   width: 120px;
   @media (min-width: 640px) and (max-width: 1080px) {
@@ -202,13 +204,14 @@ const Header = (props) => {
 
     return (
       <div>
-        <HeaderContainer initial={{opacity: 0, y: -200}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5, ease: "easeOut"}} hasScrolled={hasScrolled} heightMobile={isMenuOpened}>
+        <HeaderContainer initial={{opacity: 0, y: -200}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5, ease: "easeOut"}} hasScrolled={hasScrolled} isDark={props.isDark} heightMobile={isMenuOpened}>
             <HeaderGroup>
-              <GroupLink><Link to="/"><HeaderLogo src={logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close: open}/></ImgMobileContainer> }</GroupLink>
+              <GroupLink><Link to="/"><HeaderLogo src={props.isDark === true ? logoKaizixDark : logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close: open}/></ImgMobileContainer> }</GroupLink>
               {((isMobile && isMenuOpened) || !isMobile) && <><NavGroup>
-                <HeaderButton>Nos projets</HeaderButton>
-                <HeaderButton>Nos services</HeaderButton>
-                <HeaderButton>L'agence</HeaderButton>
+                <HeaderButton isDark={props.isDark} onClick={() => navigate("/projets")} >Nos projets</HeaderButton>
+                <HeaderButton isDark={props.isDark} onClick={() => navigate("/nos-services")} >Nos services</HeaderButton>
+                <HeaderButton isDark={props.isDark} onClick={() => navigate("/blog")} >Blog</HeaderButton>
+                <HeaderButton isDark={props.isDark} onClick={() => navigate("/calculateur-de-projets")} >Calculateur de projets</HeaderButton>
               </NavGroup>
               <CtaButtonContainer>
                 <CtaButton onClick={props.onclick}>

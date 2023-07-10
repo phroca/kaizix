@@ -20,7 +20,7 @@ const IndexPage = () => {
       <Seo title="KAIZIX - Agence de développement web & création digitale" />
       <HeroSection click={(e) => handleClickCta(e)}/>
       <EngagementSection />
-       <ServiceSection />
+      <ServiceSection />
       <ProjetsSection />
       <ContactSection />
     </Layout>

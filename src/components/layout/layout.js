@@ -35,7 +35,7 @@ import ContactModal from "./contact-modal/contact-modal"
     }
    return (
        <>
-         <Header onclick={(e) => handleContact(e)}/>
+         <Header onclick={(e) => handleContact(e)} isDark={props.isDark}/>
          <main>{props.children}</main>
          <Footer />
          {(isContactTouched || props?.modalContact) && <MainModal><ContactModal closeModal={(e) => handleCloseModal(e)}/></MainModal>}

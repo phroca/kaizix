@@ -56,32 +56,38 @@
         },
         {
             "id": "fpk-2",
-            "label": "Blog",
-            "link": "/",
+            "label": "Nos services",
+            "link": "/nos-services",
             "isExternalLink": false
         },
         {
             "id": "fpk-3",
+            "label": "Blog",
+            "link": "/blog",
+            "isExternalLink": false
+        },
+        {
+            "id": "fpk-4",
             "label": "FAQ",
             "link": "/",
             "isExternalLink": false
         },
         {
-            "id": "fpk-4",
-            "label": "Politique de confidentialité",
-            "link": "/",
-            "isExternalLink": false
-        },
-        {
             "id": "fpk-5",
-            "label": "Mentions Légales",
-            "link": "/",
+            "label": "Politique de confidentialité",
+            "link": "/politique-de-confidentialite",
             "isExternalLink": false
         },
         {
             "id": "fpk-6",
+            "label": "Mentions Légales",
+            "link": "/mentions-legales",
+            "isExternalLink": false
+        },
+        {
+            "id": "fpk-7",
             "label": "Calculateur de projet",
-            "link": "/",
+            "link": "/calculateur-de-projets",
             "isExternalLink": false
         }
     ]
