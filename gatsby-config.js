@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `KAIZIX - Agence de développement web & création digitale`,
     description: `Agence de développement en création de sites web et applications mobiles design, performants & personnalisées pour booster votre activité et vous démarquer.`,
-    siteUrl: `https://www.kaizix.fr`,
+    siteUrl: `https://kaizix.fr`,
     image: `/kaizix-logo-solo.png`,
   },
   plugins: ["gatsby-plugin-styled-components", {
@@ -34,8 +34,8 @@ module.exports = {
   {
     resolve: "gatsby-plugin-robots-txt",
     options: {
-      host: 'https://www.kaizix.fr',
-      sitemap: 'https://www.kaizix.fr/sitemap-index.xml',
+      host: 'https://kaizix.fr',
+      sitemap: 'https://kaizix.fr/sitemap-index.xml',
       policy: [{userAgent: '*', allow: '/'}]
     }
   }
