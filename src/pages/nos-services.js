@@ -36,7 +36,7 @@ const Service = () => {
             <ServiceContainer>
                 <ServiceSubContainer>
                     <ServiceH1>Nos services</ServiceH1>
-                    <ServiceH2>Avec Kaizix, nous créeons des identités de marques, lançons des strtups, aidons les entreprises à se développer à travers le web. Voici comment nous procédons.</ServiceH2>
+                    <ServiceH2>Avec Kaizix, nous créeons des identités de marques, lançons des startups, aidons les entreprises à se développer à travers le web. Voici comment nous procédons.</ServiceH2>
                 </ServiceSubContainer>
             </ServiceContainer>
         </Layout>

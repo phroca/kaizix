@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // import Swiper core and required modules.
-import SwiperCore, { Pagination,Navigation } from "swiper";
+import SwiperCore, { Pagination, Navigation } from "swiper";
 import { motion } from "framer-motion";
 // configure Swiper to use modules
 SwiperCore.use([Pagination]);
@@ -208,7 +208,7 @@ const ListProjets = [
         "slogan": "Créer sa réserve cognitive",
         "technologie": "Application mobile",
         "image": "",
-        "lien": "https://www.artistmarketing.fr/brainsport"
+        "lien": "#"
     },
     {
         "id": 3,
@@ -289,37 +289,37 @@ const ProjetsSection = () => {
         return () => {
             mediaQuery.removeEventListener("change", handleMediaQueryChange);
         }
-    },[])
+    }, [])
 
     return (
         <ProjetContainer>
             <ProjectSubContainer>
                 <SubHeaderContainer>
-                    <SubHeader mode="dark" color="#FFFFFF" text="Nos réalisations"/>
+                    <SubHeader mode="dark" color="#FFFFFF" text="Nos réalisations" />
                 </SubHeaderContainer>
                 <ProjetTitles>
                     <ProjetMainTitle>Nous utilisons nos outils pour construire votre projet.</ProjetMainTitle>
                     <ProjetSubTitle>Nous aidons les entreprises qui nous font confiance à atteindre leurs objectifs. <u>Résoudre leurs problèmes.</u></ProjetSubTitle>
                 </ProjetTitles>
                 <ProjetElementList>
-                <Swiper slidesPerView={isMobile ? 1 : 3} grabCursor={true} centeredSlides={true} pagination={true} navigation={true} modules={[Navigation, Pagination]} 
-className="mySwiper">
-                    {ListProjets.map((element, index) =>(
-                        <SwiperSlide key={element.id}>
-                            <ProjetElement>
-                                <ProjectImage />
-                                <ProjetTitle>{element.titre}</ProjetTitle>
-                                <ProjetSlogan>{element.slogan}</ProjetSlogan>
-                                <ProjetTechnologie>{element.technologie}</ProjetTechnologie>
-                                <ProjetLink onClick={() => window.open(element.lien, '_blank')}>
-                                    <ProjetLinkText>
-                                        Voir le projet
-                                    </ProjetLinkText>
-                                </ProjetLink>
-                            </ProjetElement>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                    <Swiper slidesPerView={isMobile ? 1 : 3} grabCursor={true} centeredSlides={true} pagination={true} navigation={true} modules={[Navigation, Pagination]}
+                        className="mySwiper">
+                        {ListProjets.map((element, index) => (
+                            <SwiperSlide key={element.id}>
+                                <ProjetElement>
+                                    <ProjectImage />
+                                    <ProjetTitle>{element.titre}</ProjetTitle>
+                                    <ProjetSlogan>{element.slogan}</ProjetSlogan>
+                                    <ProjetTechnologie>{element.technologie}</ProjetTechnologie>
+                                    <ProjetLink onClick={() => window.open(element.lien, '_blank')}>
+                                        <ProjetLinkText>
+                                            Voir le projet
+                                        </ProjetLinkText>
+                                    </ProjetLink>
+                                </ProjetElement>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </ProjetElementList>
             </ProjectSubContainer>
         </ProjetContainer>
