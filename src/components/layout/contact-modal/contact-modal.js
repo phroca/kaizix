@@ -83,7 +83,7 @@ const InputWrapper = styled.div`
     grid-template-rows: auto;
     padding: 0 40px 0 40px;
 `
-    
+
 const LabelInput = styled.label`
     color: #000000;
 `
@@ -135,7 +135,6 @@ const ContactModal = (props) => {
     const [messageNotification, setMessageNotification] = useState("");
     const nom = useInput("");
     const email = useInput("");
-    const budget = useInput("");
     const message = useInput("");
 
     const validateEmail = (str) => {
@@ -146,11 +145,10 @@ const ContactModal = (props) => {
     const handleSendingMail = (event) => {
         event.preventDefault();
         setLoading(true);
-        if(nom.value === "") {setLoading(false); setMessageNotification("Le nom est incomplet."); return;}
-        if(email.value === "" && !validateEmail(email.value)) {setLoading(false); setMessageNotification("Le mail est incomplet."); return;}
-        if(budget.value === "") {setLoading(false); setMessageNotification("Le budget est incomplet. Si vous n'avez pas d'idées, mettez 0."); return;}
-        if(message.value === "") {setLoading(false); setMessageNotification("Le message est incomplet."); return;}
-        const messageComplet = message.value + "\n" + "Le budget estimé : " + budget.value
+        if (nom.value === "") { setLoading(false); setMessageNotification("Le nom est incomplet."); return; }
+        if (email.value === "" && !validateEmail(email.value)) { setLoading(false); setMessageNotification("Le mail est incomplet."); return; }
+        if (message.value === "") { setLoading(false); setMessageNotification("Le message est incomplet."); return; }
+        const messageComplet = message.value + "\n";
         emailjs.send(
             'service_pwbbi7c',
             'template_lc1p4rs',
@@ -161,7 +159,7 @@ const ContactModal = (props) => {
                 to_email: 'roca.philippe63@gmail.com',
                 message: `${messageComplet}`
             },
-            'U2pbE-4T0vMbQDnWS'
+            'JmOpH28DRtw0Z428V'
         ).then(() => {
             setLoading(false);
             setMessageNotification("Merci. Nous vous recontacterons le plus rapidement possible.");
@@ -170,16 +168,16 @@ const ContactModal = (props) => {
             console.log(error);
             setMessageNotification("Une erreur est survenue. Veuillez recommencer");
         });
-        
+
     }
     return (
         <ContactContainer>
             <ContactSubContainer>
-                
+
                 <ContactBottomPart>
-                <ContactCloseButtonContainer onClick={props.closeModal}>
-                    <ContactCloseImg src={closeImg}/>
-                </ContactCloseButtonContainer>
+                    <ContactCloseButtonContainer onClick={props.closeModal}>
+                        <ContactCloseImg src={closeImg} />
+                    </ContactCloseButtonContainer>
                     <ContactFormContainer>
                         <InputWrapper>
                             <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
@@ -190,23 +188,19 @@ const ContactModal = (props) => {
                             <InscriptionInput id="email" placeholder="Email" {...email}></InscriptionInput>
                         </InputWrapper>
                         <InputWrapper>
-                            <LabelInput htmlFor="budget">Quel est votre budget ? Donnez nous une fourchette</LabelInput>
-                            <InscriptionInput id="budget" placeholder="Budget" {...budget}></InscriptionInput>
-                        </InputWrapper>
-                        <InputWrapper>
                             <LabelInput htmlFor="message">Dites-nous en plus sur votre projet et nous serons ravis de travailler dessus avec vous.</LabelInput>
                             <InscriptionInput id="message" placeholder="Message" {...message}></InscriptionInput>
                         </InputWrapper>
                         <ContactButtonContainer>
                             <ContactButton onClick={(e) => handleSendingMail(e)}>
-                            {loading ? "Envoi en cours..." : "Envoyez"}
+                                {loading ? "Envoi en cours..." : "Envoyez"}
                             </ContactButton>
                         </ContactButtonContainer>
                         <ContactMessage>
                             {messageNotification}
                         </ContactMessage>
                     </ContactFormContainer>
-                    </ContactBottomPart>
+                </ContactBottomPart>
             </ContactSubContainer>
         </ContactContainer>
     )

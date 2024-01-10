@@ -230,7 +230,6 @@ const ContactSection = () => {
     const [messageNotification, setMessageNotification] = useState("");
     const nom = useInput("");
     const email = useInput("");
-    const budget = useInput("");
     const message = useInput("");
 
     const validateEmail = (str) => {
@@ -243,9 +242,8 @@ const ContactSection = () => {
         setLoading(true);
         if (nom.value === "") { setLoading(false); setMessageNotification("Le nom est incomplet."); return; }
         if (email.value === "" && !validateEmail(email.value)) { setLoading(false); setMessageNotification("Le mail est incomplet."); return; }
-        if (budget.value === "") { setLoading(false); setMessageNotification("Le budget est incomplet. Si vous n'avez pas d'idées, mettez 0."); return; }
         if (message.value === "") { setLoading(false); setMessageNotification("Le message est incomplet."); return; }
-        const messageComplet = message.value + "\n" + "Le budget estimé : " + budget.value
+        const messageComplet = message.value + "\n";
         emailjs.send(
             'service_pwbbi7c',
             'template_lc1p4rs',
@@ -283,10 +281,6 @@ const ContactSection = () => {
                             <InputWrapper>
                                 <LabelInput htmlFor="email">On vous répondra via email. Pas de spam.</LabelInput>
                                 <InscriptionInput id="email" placeholder="Email" {...email}></InscriptionInput>
-                            </InputWrapper>
-                            <InputWrapper>
-                                <LabelInput htmlFor="budget">Quel est votre budget ? Donnez nous une fourchette</LabelInput>
-                                <InscriptionInput id="budget" placeholder="Budget" {...budget}></InscriptionInput>
                             </InputWrapper>
                             <InputWrapper>
                                 <LabelInput htmlFor="message">Dites-nous en plus sur votre projet et nous serons ravis de travailler dessus avec vous.</LabelInput>
