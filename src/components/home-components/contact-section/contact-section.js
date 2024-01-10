@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import imgContact from "../../../images/home/contact-section/contact-img.webp"
 import SubHeader from "../../sub-header/sub-header"
@@ -178,7 +178,7 @@ const InputWrapper = styled.div`
     grid-template-rows: auto;
     padding: 0 40px 0 40px;
 `
-    
+
 const LabelInput = styled.label`
     color: #000000;
 `
@@ -241,10 +241,10 @@ const ContactSection = () => {
     const handleSendingMail = (event) => {
         event.preventDefault();
         setLoading(true);
-        if(nom.value === "") {setLoading(false); setMessageNotification("Le nom est incomplet."); return;}
-        if(email.value === "" && !validateEmail(email.value)) {setLoading(false); setMessageNotification("Le mail est incomplet."); return;}
-        if(budget.value === "") {setLoading(false); setMessageNotification("Le budget est incomplet. Si vous n'avez pas d'idées, mettez 0."); return;}
-        if(message.value === "") {setLoading(false); setMessageNotification("Le message est incomplet."); return;}
+        if (nom.value === "") { setLoading(false); setMessageNotification("Le nom est incomplet."); return; }
+        if (email.value === "" && !validateEmail(email.value)) { setLoading(false); setMessageNotification("Le mail est incomplet."); return; }
+        if (budget.value === "") { setLoading(false); setMessageNotification("Le budget est incomplet. Si vous n'avez pas d'idées, mettez 0."); return; }
+        if (message.value === "") { setLoading(false); setMessageNotification("Le message est incomplet."); return; }
         const messageComplet = message.value + "\n" + "Le budget estimé : " + budget.value
         emailjs.send(
             'service_pwbbi7c',
@@ -256,7 +256,7 @@ const ContactSection = () => {
                 to_email: 'roca.philippe63@gmail.com',
                 message: `${messageComplet}`
             },
-            'U2pbE-4T0vMbQDnWS'
+            'JmOpH28DRtw0Z428V'
         ).then(() => {
             setLoading(false);
             setMessageNotification("Merci. Nous vous recontacterons le plus rapidement possible.");
@@ -265,49 +265,49 @@ const ContactSection = () => {
             console.log(error);
             setMessageNotification("Une erreur est survenue. Veuillez recommencer");
         });
-        
+
     }
     return (
         <ContactContainer>
             <ContactSubContainer>
 
-                <SubHeader color="#7FCBB1" text="Discutons de votre projet"/>
+                <SubHeader color="#7FCBB1" text="Discutons de votre projet" />
                 <ContactTitle>Vous avez une idée ? Nous pouvons vous aider.</ContactTitle>
                 <ContactBottomPart>
                     <ContactLeftContainer>
-                    <ContactFormContainer>
-                        <InputWrapper>
-                            <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
-                            <InscriptionInput id="nom" placeholder="Nom" {...nom}></InscriptionInput>
-                        </InputWrapper>
-                        <InputWrapper>
-                            <LabelInput htmlFor="email">On vous répondra via email. Pas de spam.</LabelInput>
-                            <InscriptionInput id="email" placeholder="Email" {...email}></InscriptionInput>
-                        </InputWrapper>
-                        <InputWrapper>
-                            <LabelInput htmlFor="budget">Quel est votre budget ? Donnez nous une fourchette</LabelInput>
-                            <InscriptionInput id="budget" placeholder="Budget" {...budget}></InscriptionInput>
-                        </InputWrapper>
-                        <InputWrapper>
-                            <LabelInput htmlFor="message">Dites-nous en plus sur votre projet et nous serons ravis de travailler dessus avec vous.</LabelInput>
-                            <InscriptionInput id="message" placeholder="Message" {...message}></InscriptionInput>
-                        </InputWrapper>
-                        <ContactButtonContainer>
-                            <ContactButton onClick={(e) => handleSendingMail(e)}>
-                            {loading ? "Envoi en cours..." : "Envoyez"}
-                            </ContactButton>
-                        </ContactButtonContainer>
-                        <ContactMessage>
-                            {messageNotification}
-                        </ContactMessage>
-                    </ContactFormContainer>
+                        <ContactFormContainer>
+                            <InputWrapper>
+                                <LabelInput htmlFor="nom">Quel est votre nom ?</LabelInput>
+                                <InscriptionInput id="nom" placeholder="Nom" {...nom}></InscriptionInput>
+                            </InputWrapper>
+                            <InputWrapper>
+                                <LabelInput htmlFor="email">On vous répondra via email. Pas de spam.</LabelInput>
+                                <InscriptionInput id="email" placeholder="Email" {...email}></InscriptionInput>
+                            </InputWrapper>
+                            <InputWrapper>
+                                <LabelInput htmlFor="budget">Quel est votre budget ? Donnez nous une fourchette</LabelInput>
+                                <InscriptionInput id="budget" placeholder="Budget" {...budget}></InscriptionInput>
+                            </InputWrapper>
+                            <InputWrapper>
+                                <LabelInput htmlFor="message">Dites-nous en plus sur votre projet et nous serons ravis de travailler dessus avec vous.</LabelInput>
+                                <InscriptionInput id="message" placeholder="Message" {...message}></InscriptionInput>
+                            </InputWrapper>
+                            <ContactButtonContainer>
+                                <ContactButton onClick={(e) => handleSendingMail(e)}>
+                                    {loading ? "Envoi en cours..." : "Envoyez"}
+                                </ContactButton>
+                            </ContactButtonContainer>
+                            <ContactMessage>
+                                {messageNotification}
+                            </ContactMessage>
+                        </ContactFormContainer>
                     </ContactLeftContainer>
                     <ContactRightContainer>
                         <ImgContainer>
                             <ImgContact src={imgContact} />
                         </ImgContainer>
                     </ContactRightContainer>
-                    </ContactBottomPart>
+                </ContactBottomPart>
             </ContactSubContainer>
         </ContactContainer>
     )
