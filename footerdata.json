@@ -1,5 +1,6 @@
 {
-    "footerPagesServices": [{
+    "footerPagesServices": [
+        {
             "id": "fps-1",
             "label": "Développement Web",
             "link": "/",
@@ -48,7 +49,8 @@
             "isExternalLink": false
         }
     ],
-    "footerPagesKaizix": [{
+    "footerPagesKaizix": [
+        {
             "id": "fpk-1",
             "label": "L'agence",
             "link": "/",
@@ -57,19 +59,13 @@
         {
             "id": "fpk-2",
             "label": "Nos services",
-            "link": "/nos-services",
+            "link": "/#services",
             "isExternalLink": false
         },
         {
             "id": "fpk-3",
-            "label": "Blog",
-            "link": "/blog",
-            "isExternalLink": false
-        },
-        {
-            "id": "fpk-4",
-            "label": "FAQ",
-            "link": "/",
+            "label": "Nos réalisations",
+            "link": "/#realisations",
             "isExternalLink": false
         },
         {
@@ -82,12 +78,6 @@
             "id": "fpk-6",
             "label": "Mentions Légales",
             "link": "/mentions-legales",
-            "isExternalLink": false
-        },
-        {
-            "id": "fpk-7",
-            "label": "Calculateur de projet",
-            "link": "/calculateur-de-projets",
             "isExternalLink": false
         }
     ]

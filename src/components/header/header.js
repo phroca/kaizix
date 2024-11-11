@@ -13,15 +13,15 @@ import { navigate } from "gatsby-link";
 const HeaderContainer = styled(motion.div)`
   position: fixed;
   width: 100%;
-  padding: ${props => props.hasScrolled === true ? "30px 0": "20px 0"};
+  padding: ${props => props.hasScrolled === true ? "30px 0" : "20px 0"};
   z-index: 100;
   display: grid;
   justify-items: center;
   justify-content: center;
   transition: 0.5s;
-  background: ${props => props.hasScrolled === true ? props.isDark === true ? "rgba(0, 0, 0, 0.9)": "rgba(255, 255, 255, 0.9)": "none"};
+  background: ${props => props.hasScrolled === true ? props.isDark === true ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)" : "none"};
   @media(max-width: 640px) {
-    height: ${props => props.heightMobile ? "unset" :"60px"};
+    height: ${props => props.heightMobile ? "unset" : "60px"};
     background: white;
   }
 `;
@@ -103,9 +103,10 @@ const HeaderButton = styled.button`
   border: none;
   background: none;
   font-family: "FuturaMedium";
-  color: ${props=> props.isDark === true ? "#9d9dad" : "black"};
+  color: ${props => props.isDark === true ? "#9d9dad" : "black"};
   text-transform: uppercase;
-  width: 120px;
+  min-width: 120px;
+  max-width: 180px;
   @media (min-width: 640px) and (max-width: 1080px) {
       width: 100px;
   }
@@ -162,36 +163,36 @@ const ImgMobile = styled.img`
 `
 
 const Header = (props) => {
-   const [hasScrolled, setHasScrolled] = useState(false);
-   const [isMenuOpened, setMenuOpened] = useState(false);
-   const [isMobile, setIsMobile] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMenuOpened, setMenuOpened] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(()=> {
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     /* Cleanup function */
-    return()=>{
+    return () => {
       window.removeEventListener('scroll', handleScroll);
     }
   }, []);
-  
-  
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 640px)");
-        setIsMobile(mediaQuery.matches);
-        const handleMediaQueryChange = (event) => {
-            setIsMobile(event.matches);
-        }
 
-        mediaQuery.addEventListener("change", handleMediaQueryChange);
-        return () => {
-            mediaQuery.removeEventListener("change", handleMediaQueryChange);
-        }
-    },[])
-  
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    setIsMobile(mediaQuery.matches);
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    }
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    }
+  }, [])
+
 
   const handleScroll = (event) => {
     const scrollTop = window.scrollY;
-    if(scrollTop > 50){
+    if (scrollTop > 50) {
       setHasScrolled(true);
     } else {
       setHasScrolled(false);
@@ -202,27 +203,28 @@ const Header = (props) => {
     setMenuOpened(isMenuOpened => !isMenuOpened);
   }
 
-    return (
-      <div>
-        <HeaderContainer initial={{opacity: 0, y: -200}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5, ease: "easeOut"}} hasScrolled={hasScrolled} isDark={props.isDark} heightMobile={isMenuOpened}>
-            <HeaderGroup>
-              <GroupLink><Link to="/"><HeaderLogo src={props.isDark === true ? logoKaizixDark : logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close: open}/></ImgMobileContainer> }</GroupLink>
-              {((isMobile && isMenuOpened) || !isMobile) && <><NavGroup>
-                <HeaderButton isDark={props.isDark} onClick={() => navigate("/projets")} >Nos projets</HeaderButton>
-                <HeaderButton isDark={props.isDark} onClick={() => navigate("/nos-services")} >Nos services</HeaderButton>
-                <HeaderButton isDark={props.isDark} onClick={() => navigate("/blog")} >Blog</HeaderButton>
-                <HeaderButton isDark={props.isDark} onClick={() => navigate("/calculateur-de-projets")} >Calculateur de projets</HeaderButton>
-              </NavGroup>
-              <CtaButtonContainer>
-                <CtaButton onClick={props.onclick}>
-                  Discutons de votre projet
-                </CtaButton>
-              </CtaButtonContainer> </>}
-            </HeaderGroup>
-        </HeaderContainer>
-      </div>
-    )
-  
+  return (
+    <div>
+      <HeaderContainer initial={{ opacity: 0, y: -200 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: "easeOut" }} hasScrolled={hasScrolled} isDark={props.isDark} heightMobile={isMenuOpened}>
+        <HeaderGroup>
+          <GroupLink><Link to="/"><HeaderLogo src={props.isDark === true ? logoKaizixDark : logoKaizix} alt="kaizix-logo" /></Link>{isMobile && <ImgMobileContainer onClick={handleToggleMenu}><ImgMobile src={isMenuOpened ? close : open} /></ImgMobileContainer>}</GroupLink>
+          {((isMobile && isMenuOpened) || !isMobile) && <><NavGroup>
+            {/* <HeaderButton isDark={props.isDark} onClick={() => navigate("/projets")} >Nos projets</HeaderButton>*/}
+            <HeaderButton isDark={props.isDark} onClick={() => navigate("#services")} >Nos services</HeaderButton>
+            <HeaderButton isDark={props.isDark} onClick={() => navigate("#realisations")} >Nos réalisations</HeaderButton>
+            {/* <HeaderButton isDark={props.isDark} onClick={() => navigate("/blog")} >Blog</HeaderButton>
+                <HeaderButton isDark={props.isDark} onClick={() => navigate("/calculateur-de-projets")} >Calculateur de projets</HeaderButton>  */}
+          </NavGroup>
+            <CtaButtonContainer>
+              <CtaButton onClick={props.onclick}>
+                Discutons de votre projet
+              </CtaButton>
+            </CtaButtonContainer> </>}
+        </HeaderGroup>
+      </HeaderContainer>
+    </div>
+  )
+
 }
 
 export default Header

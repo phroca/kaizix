@@ -8,13 +8,13 @@ import imgLogo from "../../images/kaizix-logo-solo-theme-dark.png"
 import footerdata from "../../../footerdata.json"
 
 
-const FooterContainer =styled.div`
+const FooterContainer = styled.div`
     background: #211E25;
     display: grid;
     align-items: center;
     justify-items: center;
 `
-const FooterSubContainer =styled.div`
+const FooterSubContainer = styled.div`
     width: 70vw;
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -66,7 +66,7 @@ const FooterColumnTitle = styled.h3`
 `
 const FooterColumnListLinkPages = styled.div`
 
-    a{
+    a, span{
         font-family: "FuturaMedium";
         font-size: 16px;
         color: white;
@@ -83,7 +83,6 @@ const FooterColumnListLinkPages = styled.div`
         }
     }
 
-}
 `
 
 const FooterSeparator = styled.div`
@@ -104,38 +103,38 @@ const Footer = () => {
     return (
         <FooterContainer>
             <FooterSubContainer>
-            <FooterTop>
-                <FooterLogo>
-                    <Link to="/"><img src={imgLogo} alt="logo Sensei" height="182" width="182" /></Link>  
-                </FooterLogo>
-                <FooterColumn>
-                    <FooterColumnTitle>
-                        Services
-                    </FooterColumnTitle>
-                    <FooterColumnListLinkPages>
-                    {footerdata.footerPagesServices.map(page=> (
-                        <a key={page.id} href={page.link} rel="noreferrer" target={page.isExternalLink ? "_blank" : "_self"}>{page.label}</a>
-                    ))}
-                    </FooterColumnListLinkPages>
-                </FooterColumn>
-                <FooterColumn>
-                    <FooterColumnTitle>
-                    Kaizix
-                    </FooterColumnTitle>
-                    <FooterColumnListLinkPages>
-                    {footerdata.footerPagesKaizix.map(com=> (
-                        <a key={com.id} href={com.link} rel="noreferrer" target={com.isExternalLink ? "_blank" : "_self"}>{com.label}</a>
-                    ))}
-                    </FooterColumnListLinkPages>
-                </FooterColumn>
-            </FooterTop>
-            <FooterSeparator />
-            <FooterBottom>
-            KAIZIX © Copyright 2023. Tout droits réservés.
-            </FooterBottom>
+                <FooterTop>
+                    <FooterLogo>
+                        <Link to="/"><img src={imgLogo} alt="logo Sensei" height="182" width="182" /></Link>
+                    </FooterLogo>
+                    <FooterColumn>
+                        <FooterColumnTitle>
+                            Services Proposés
+                        </FooterColumnTitle>
+                        <FooterColumnListLinkPages>
+                            {footerdata.footerPagesServices.map(page => (
+                                <span>{page.label}</span>
+                            ))}
+                        </FooterColumnListLinkPages>
+                    </FooterColumn>
+                    <FooterColumn>
+                        <FooterColumnTitle>
+                            Kaizix
+                        </FooterColumnTitle>
+                        <FooterColumnListLinkPages>
+                            {footerdata.footerPagesKaizix.map(com => (
+                                <a key={com.id} href={com.link} rel="noreferrer" target={com.isExternalLink ? "_blank" : "_self"}>{com.label}</a>
+                            ))}
+                        </FooterColumnListLinkPages>
+                    </FooterColumn>
+                </FooterTop>
+                <FooterSeparator />
+                <FooterBottom>
+                    KAIZIX © Copyright 2024. Tout droits réservés.
+                </FooterBottom>
             </FooterSubContainer>
         </FooterContainer>
-    ) 
+    )
 }
 
 export default Footer

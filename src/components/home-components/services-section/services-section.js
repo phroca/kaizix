@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import * as React from "react";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import vdServices from "../../../videos/kaizix-presentation.mp4"
 import vdServicesWebM from "../../../videos/kaizix-presentation.webm"
@@ -165,27 +165,27 @@ const ColorGradient = styled(motion.div)`
 const serviceData = [
     {
         "id": 1,
-        "title":"Developpement Web",
+        "title": "Developpement Web",
         "text": "Notre point fort est le développement web sur le cycle complet : Nous pouvons prendre un projet à partir d’un idée et de la traduire en solution. Cela inclut la conception, la construction la marque, envelopper le tout dans le code et lancer le site Web."
     },
     {
         "id": 2,
-        "title":"Developpement Mobile",
+        "title": "Developpement Mobile",
         "text": "Nous créons des applications mobiles sur toutes les plateformes (Android & iOS). Notre expertise nous permet de développer des solutions pour diverses entreprises, notamment dans e-commerce, la santé, l’éducation, l’innovation et technologie, l’ioT, etc. "
     },
     {
         "id": 3,
-        "title":"Design",
+        "title": "Design",
         "text": "La conception de sites web et d’applications a un but en terme de visuel et d’expérience utilisateur. Grâce à nos compétences en UX/UI, nous créons des visuels attrayants et efficaces. "
     },
     {
         "id": 4,
-        "title":"Service de maintenance",
+        "title": "Service de maintenance",
         "text": "Un site web ou une application web n’est pas statique et doit être en constante évolution. Nous nous efforçons de maintenir et de garantir le fonctionnement optimal en terme de sécurité et de stabilité avec les dernières technologies."
     },
     {
         "id": 5,
-        "title":"Formations et mentorat",
+        "title": "Formations et mentorat",
         "text": "Nous proposons des services de formation et de mentorat pour aider les entreprises à développer leurs compétences en matière de développement web mais aussi d’utilisation de nos outils développé pour ces entreprises."
     }
 
@@ -194,31 +194,31 @@ const serviceData = [
 const ServiceSection = () => {
 
     return (
-        <ServicesContainer>
+        <ServicesContainer id="services">
             <ServicesSubContainer>
                 <ServicesLeftContainer>
                     <ImgContainer>
-                        <VideoService  autoPlay={true} loop preload="auto" muted src={vdServices}>
-                        <source src={vdServices} type="video/mp4"/>
-                        <source src={vdServicesWebM} type="video/webm"/>
+                        <VideoService autoPlay={true} loop preload="auto" muted src={vdServices}>
+                            <source src={vdServices} type="video/mp4" />
+                            <source src={vdServicesWebM} type="video/webm" />
                         </VideoService>
                     </ImgContainer>
                     <ColorGradient />
                 </ServicesLeftContainer>
                 <ServicesRightContainer>
-                    <SubHeader color="#000000" text="Nos services"/>
+                    <SubHeader color="#000000" text="Nos services" />
                     <ServicesTitle >Ce que nous proposons</ServicesTitle>
                     <ServiceParagraphContainer>
-                    {serviceData.map( (service, index) => (
-                        <ServiceParagraph key={service.id}>
-                        <ParagraphTitle>
-                            {service.title}
-                        </ParagraphTitle>
-                        <ParagraphText>
-                            {service.text}
-                        </ParagraphText>
-                    </ServiceParagraph>
-                    ))}
+                        {serviceData.map((service, index) => (
+                            <ServiceParagraph key={service.id}>
+                                <ParagraphTitle>
+                                    {service.title}
+                                </ParagraphTitle>
+                                <ParagraphText>
+                                    {service.text}
+                                </ParagraphText>
+                            </ServiceParagraph>
+                        ))}
                     </ServiceParagraphContainer>
                 </ServicesRightContainer>
             </ServicesSubContainer>
