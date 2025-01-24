@@ -369,7 +369,7 @@ const ProjetsSection = () => {
                     <Swiper slidesPerView={isMobile ? 1 : 3} grabCursor={true} centeredSlides={true} pagination={true} navigation={true} modules={[Navigation, Pagination]}
                         className="mySwiper">
                         {ListProjets.map((element, index) => (
-                            <SwiperSlide key={element.id}>
+                            <SwiperSlide key={`projet-${element.id}-${index}`}>
                                 <ProjetElement>
                                     <ProjectImage />
                                     <ProjetTitle>{element.titre}</ProjetTitle>

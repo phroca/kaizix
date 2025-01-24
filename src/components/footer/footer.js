@@ -130,7 +130,7 @@ const Footer = () => {
                 </FooterTop>
                 <FooterSeparator />
                 <FooterBottom>
-                    KAIZIX © Copyright 2024. Tout droits réservés.
+                    KAIZIX © Copyright 2025. Tout droits réservés.
                 </FooterBottom>
             </FooterSubContainer>
         </FooterContainer>

@@ -8,7 +8,7 @@ import SubHeader from "../../sub-header/sub-header"
 import useInput from "../../../hook/useInput";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser"
-
+import MediaRendering from "../../../components/composables/media-rendering"
 
 const ContactContainer = styled.div`
     height: 100vh;
@@ -296,11 +296,13 @@ const ContactSection = () => {
                             </ContactMessage>
                         </ContactFormContainer>
                     </ContactLeftContainer>
-                    <ContactRightContainer>
-                        <ImgContainer>
-                            <ImgContact src={imgContact} />
-                        </ImgContainer>
-                    </ContactRightContainer>
+                    <MediaRendering minWidth="1024" maxWidth={null}>
+                        <ContactRightContainer>
+                            <ImgContainer>
+                                <ImgContact src={imgContact} />
+                            </ImgContainer>
+                        </ContactRightContainer>
+                    </MediaRendering>
                 </ContactBottomPart>
             </ContactSubContainer>
         </ContactContainer>

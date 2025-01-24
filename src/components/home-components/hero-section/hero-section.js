@@ -39,6 +39,7 @@ const HeroSubContainer = styled.div`
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         width: unset;
+        align-items: center;
         grid-template-columns: auto auto;
         gap: 20px;
   }
@@ -68,7 +69,7 @@ const HeroTitle = styled(motion.h1)`
     @media(max-width: 640px) {
         font-size: 30px;
         max-width: unset;
-        margin: 50px 20px;
+        margin: 50px 20px 10px;
     }
     @media (min-width: 640px) and (max-width: 1080px) {
         font-size: 40px;
@@ -140,7 +141,7 @@ const HeroCTA = styled(motion.div)`
         }
     }
     @media(max-width: 640px) {
-        margin: 10px 0;
+        margin: 10px 20px;
     }
 
 `
@@ -181,25 +182,25 @@ const SubHeaderTexte = styled.div`
 
 const HeroSection = (props) => {
 
-    return(
+    return (
         <HeroContainer>
             <HeroSubContainer>
                 <HeroLeftContainer >
-                    <SubHeaderContainer initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>
+                    <SubHeaderContainer initial={{ opacity: 0, scale: 1.5, x: 200 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
                         <SubHeaderCercle />
                         <SubHeaderTexte>à la pointe de votre besoin</SubHeaderTexte>
                     </SubHeaderContainer>
-                    <HeroTitle initial={{opacity: 0, scale: 1.5, x: 200}} animate={{opacity: 1, scale: 1, x: 0}} transition={{duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>L'engagement de vous offrir le meilleur en matière de performance et d'esthétisme.</HeroTitle>
-                    <HeroText initial={{opacity: 0, scale: 1.5}} animate={{opacity: 1, scale: 1}} transition={{duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01]}}>Nous sommes une agence de développement <strong>à Orléans</strong> dans la création de sites web,
-                     d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
-                     </HeroText>
-                     <HeroCTA initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1, delay: 1.2, ease: [0, 0.71, 0.2, 1.01]}}>
+                    <HeroTitle initial={{ opacity: 0, scale: 1.5, x: 200 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 1, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>L'engagement de vous offrir le meilleur en matière de performance et d'esthétisme.</HeroTitle>
+                    <HeroText initial={{ opacity: 0, scale: 1.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.8, ease: [0, 0.71, 0.2, 1.01] }}>Nous sommes une agence de développement <strong>à Orléans</strong> dans la création de sites web,
+                        d’application web et mobile. Avec KAIZIX, Nous vous accompagnons dans la création de produits esthétiques, performants et personnalisés pour booster votre activité et vous différencier de la concurrence.
+                    </HeroText>
+                    <HeroCTA initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2, ease: [0, 0.71, 0.2, 1.01] }}>
                         <HeroCTAText onClick={props.click}>
-                        Discutons de votre projet et travaillons ensemble
+                            Discutons de votre projet et travaillons ensemble
                         </HeroCTAText>
-                     </HeroCTA>
+                    </HeroCTA>
                 </HeroLeftContainer>
-                <HeroRightContainer initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}}>
+                <HeroRightContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
                     <ImgContainer>
                         <LogoCanvas />
                     </ImgContainer>
