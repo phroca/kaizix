@@ -1,18 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: "FuturaBold";
-    src: local("FuturaBold"), url('../../font/FuturaBold.otf') format("truetype");
+    src: local("FuturaBold"), url('../font/FuturaBold.otf') format("truetype");
     font-weight: bold;
 }
 
 @font-face {
     font-family: "FuturaMedium";
-    src: local("FuturaMedium"), url('../../font/FuturaMedium.otf') format("truetype");
+    src: local("FuturaMedium"), url('../font/FuturaMedium.otf') format("truetype");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "FuturaLt";
-    src: local("FuturaLt"), url('../../font/FuturaLt.ttf') format("truetype");
+    src: local("FuturaLt"), url('../font/FuturaLt.ttf') format("truetype");
     font-weight: 300;
 }
 
@@ -24,8 +28,4 @@ body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
-}
-
-main {
-    overflow: hidden;
 }

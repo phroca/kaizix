@@ -9,8 +9,8 @@ import Header from "../header/header"
 import "./layout.css"
 import Footer from "../footer/footer"
 import ContactModal from "./contact-modal/contact-modal"
- 
- const MainModal = styled.div`
+
+const MainModal = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -20,33 +20,31 @@ import ContactModal from "./contact-modal/contact-modal"
   z-index: 120;
   display: grid;
   justify-content: center;
-}
  `
- const Layout = (props) => {
-    const [isContactTouched, setIsContactTouched] = useState(false);
-    const handleContact = (event) => {
-      event.preventDefault();
-      setIsContactTouched(true)
-    }
-    const handleCloseModal = (event) => {
-      event.preventDefault();
-      setIsContactTouched(false);
-      props?.modalContactUpdate(false);
-    }
-   return (
-       <>
-         <Header onclick={(e) => handleContact(e)} isDark={props.isDark}/>
-         <main>{props.children}</main>
-         <Footer />
-         {(isContactTouched || props?.modalContact) && <MainModal><ContactModal closeModal={(e) => handleCloseModal(e)}/></MainModal>}
-       </>
-     
-   )
- }
- 
- Layout.propTypes = {
-   children: PropTypes.node.isRequired,
- }
- 
- export default Layout
- 
+const Layout = (props) => {
+  const [isContactTouched, setIsContactTouched] = useState(false);
+  const handleContact = (event) => {
+    event.preventDefault();
+    setIsContactTouched(true)
+  }
+  const handleCloseModal = (event) => {
+    event.preventDefault();
+    setIsContactTouched(false);
+    props?.modalContactUpdate(false);
+  }
+  return (
+    <>
+      <Header onclick={(e) => handleContact(e)} isDark={props.isDark} />
+      <main>{props.children}</main>
+      <Footer />
+      {(isContactTouched || props?.modalContact) && <MainModal><ContactModal closeModal={(e) => handleCloseModal(e)} /></MainModal>}
+    </>
+
+  )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout
